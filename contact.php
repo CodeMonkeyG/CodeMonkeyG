@@ -9,7 +9,7 @@ require __DIR__ . '/partials/header.php';
 <section class="page-header">
 	<p class="eyebrow">Contact</p>
 	<h1>Let’s talk about what your business needs next.</h1>
-	<p class="lede">If operations feel messy, systems are disconnected, or growth is creating technical friction, reaching out is the best first step. A short conversation can quickly clarify where to simplify, what to fix first, and how to move forward with confidence.</p>
+	<p class="lede">If operations feel messy, systems are disconnected, or growth is creating technical friction, reaching out is the best first step. The goal is a quick, practical conversation to clarify where to simplify, what to fix first, and how to move forward with confidence.</p>
 </section>
 
 <section class="contact-grid">
@@ -29,7 +29,7 @@ require __DIR__ . '/partials/header.php';
 	<article class="card">
 		<h2>What Happens Next</h2>
 		<p>Most messages receive a response within 1-2 business days. Initial conversations focus on goals, constraints, and the most practical path to early momentum.</p>
-		<p>Engagement can range from focused advisory sessions to hands-on implementation support.</p>
+		<p>Support can range from focused advisory sessions to hands-on implementation work, with one direct point of contact throughout.</p>
 	</article>
 </section>
 

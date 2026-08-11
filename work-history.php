@@ -9,7 +9,7 @@ require __DIR__ . '/partials/header.php';
 <section class="page-header">
 	<p class="eyebrow">Work History</p>
 	<h1>12+ years building high-impact technical solutions.</h1>
-	<p class="lede">From Fortune 500 integrations to Bay Area startup execution, this work history reflects a hands-on path through architecture, operations, pre-sales engineering, and customer-facing product delivery.</p>
+	<p class="lede">From Fortune 500 integrations to Bay Area startup execution, my work history reflects a hands-on path through architecture, operations, pre-sales engineering, and customer-facing product delivery.</p>
 </section>
 
 <section class="section key-wins">
@@ -31,7 +31,7 @@ require __DIR__ . '/partials/header.php';
 		<article class="card key-win-card">
 			<p class="metric">12+ years</p>
 			<h3>Hands-on delivery</h3>
-			<p>Spanning architecture, integration engineering, technical sales support, platform operations, and incident response.</p>
+			<p>Delivery experience spans architecture, integration engineering, technical sales support, platform operations, and incident response.</p>
 		</article>
 	</div>
 	<div class="industry-platform-grid">
@@ -103,7 +103,7 @@ require __DIR__ . '/partials/header.php';
 	<article class="timeline-item card">
 		<p class="timeline-date">2007 - 2011</p>
 		<h2>Co-Founder and Lead Developer, Dynamic Duo Designs / CodeMonkeyG</h2>
-		<p>Built and delivered custom web applications, ecommerce experiences, and digital solutions for 100+ clients while developing the technical and client-service model that still guides current work.</p>
+		<p>Built and delivered custom web applications, ecommerce experiences, and digital solutions for 100+ clients while developing the technical and client-service model that still guides work today.</p>
 	</article>
 </section>
 
