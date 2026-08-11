@@ -33,4 +33,16 @@ require __DIR__ . '/partials/header.php';
 	</article>
 </section>
 
+<section class="section resume-download">
+	<div class="section-heading">
+		<p class="eyebrow">Resume</p>
+		<h2>Download a detailed experience summary.</h2>
+	</div>
+	<p class="lede">For a full breakdown of architecture, integration, and delivery experience, download the latest resume below.</p>
+	<div class="hero-actions">
+		<a class="button" href="/assets/CodeMonkeyG-Resume.pdf" download>Download Resume (PDF)</a>
+	</div>
+	<p class="caption">If the file is updated with a newer version, this same link will always download the latest copy.</p>
+</section>
+
 <?php require __DIR__ . '/partials/footer.php'; ?>

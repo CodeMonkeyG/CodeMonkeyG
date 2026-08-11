@@ -250,6 +250,36 @@ a:hover {
 	margin-bottom: 22px;
 }
 
+.key-wins-grid,
+.industry-platform-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.industry-platform-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	margin-top: 18px;
+}
+
+.key-win-card {
+	display: grid;
+	gap: 10px;
+}
+
+.metric {
+	margin: 0;
+	font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+	font-weight: 700;
+	line-height: 1;
+	color: var(--brand-dark);
+	font-family: Georgia, "Times New Roman", serif;
+}
+
+.resume-download .lede {
+	max-width: 70ch;
+}
+
 .card-grid,
 .contact-grid {
 	display: grid;
@@ -330,7 +360,9 @@ a:hover {
 	.hero,
 	.content-grid,
 	.card-grid,
-	.contact-grid {
+	.contact-grid,
+	.key-wins-grid,
+	.industry-platform-grid {
 		grid-template-columns: 1fr;
 	}
 
