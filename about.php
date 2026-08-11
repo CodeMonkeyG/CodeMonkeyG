@@ -22,11 +22,13 @@ require __DIR__ . '/partials/header.php';
 	</article>
 	<aside class="card">
 		<h2>Quick facts</h2>
-		<ul class="stack-list">
-			<li>Focused on local business technology</li>
-			<li>Independent, solo-led operation</li>
-			<li>Built with practical implementation in mind</li>
-		</ul>
+        <p>
+            <ul class="stack-list">
+                <li>Focused on local business technology</li>
+                <li>Independent, solo-led operation</li>
+                <li>Built with practical implementation in mind</li>
+            </ul>
+        </p>
 	</aside>
 </section>
 
