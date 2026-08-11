@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Contact | CodeMonkeyG';
-$pageDescription = 'Contact details and simple placeholders for getting in touch.';
+$pageDescription = 'Reach out to discuss practical technology solutions for your business.';
 $activePage = 'contact';
 
 require __DIR__ . '/partials/header.php';
@@ -8,41 +8,42 @@ require __DIR__ . '/partials/header.php';
 
 <section class="page-header">
 	<p class="eyebrow">Contact</p>
-	<h1>Make it easy to say hello.</h1>
-	<p class="lede">This page can stay simple until real contact details are ready. Use it for email, social links, or a short form once the rest of the profile copy is finalized.</p>
+	<h1>Let’s talk about what your business needs next.</h1>
+	<p class="lede">If operations feel messy, systems are disconnected, or growth is creating technical friction, reaching out is the best first step. A short conversation can quickly clarify where to simplify, what to fix first, and how to move forward with confidence.</p>
 </section>
 
 <section class="contact-grid">
 	<article class="card">
-		<h2>Email</h2>
-		<p><a href="mailto:hello@example.com">hello@example.com</a></p>
-		<p>Replace this with the preferred public email address when you are ready.</p>
+		<h2>Start Here</h2>
+		<p><a href="mailto:codemonkeyg@gmail.com">codemonkeyg@gmail.com</a></p>
+		<p>Email is the fastest way to connect. Include a quick summary of your business, the challenge you are facing, and any deadline you are working against.</p>
 	</article>
 	<article class="card">
-		<h2>Social</h2>
+		<h2>Connect Online</h2>
 		<ul class="stack-list">
-			<li><a href="https://www.linkedin.com/">LinkedIn</a></li>
-			<li><a href="https://github.com/">GitHub</a></li>
-			<li><a href="https://www.instagram.com/">Instagram</a></li>
+			<li><a href="https://www.linkedin.com/in/CodeMonkeyG">LinkedIn</a></li>
+			<li><a href="https://github.com/CodeMonkeyG">GitHub</a></li>
 		</ul>
+		<p>LinkedIn is a great place for professional outreach. GitHub shows hands-on technical work and active development style.</p>
 	</article>
 	<article class="card">
-		<h2>Availability</h2>
-		<p>Open to new conversations, updates, and future opportunities.</p>
-		<p>A short response window and a clear call to action keep this page useful even before the final copy is written.</p>
+		<h2>What Happens Next</h2>
+		<p>Most messages receive a response within 1-2 business days. Initial conversations focus on goals, constraints, and the most practical path to early momentum.</p>
+		<p>Engagement can range from focused advisory sessions to hands-on implementation support.</p>
 	</article>
 </section>
 
 <section class="section resume-download">
 	<div class="section-heading">
 		<p class="eyebrow">Resume</p>
-		<h2>Download a detailed experience summary.</h2>
+		<h2>Need technical depth before reaching out?</h2>
 	</div>
-	<p class="lede">For a full breakdown of architecture, integration, and delivery experience, download the latest resume below.</p>
+	<p class="lede">Download the latest resume for a detailed view of architecture, integrations, enterprise delivery, and cross-industry project experience.</p>
 	<div class="hero-actions">
 		<a class="button" href="/assets/CodeMonkeyG-Resume.pdf" download>Download Resume (PDF)</a>
+		<a class="button button-secondary" href="mailto:codemonkeyg@gmail.com">Send an Email</a>
 	</div>
-	<p class="caption">If the file is updated with a newer version, this same link will always download the latest copy.</p>
+	<p class="caption">The resume link always points to the most current version.</p>
 </section>
 
 <?php require __DIR__ . '/partials/footer.php'; ?>
