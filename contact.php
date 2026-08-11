@@ -21,8 +21,8 @@ require __DIR__ . '/partials/header.php';
 	<article class="card">
 		<h2>Connect Online</h2>
 		<ul class="stack-list">
-			<li><a href="https://www.linkedin.com/in/CodeMonkeyG">LinkedIn</a></li>
-			<li><a href="https://github.com/CodeMonkeyG">GitHub</a></li>
+			<li><a href="https://www.linkedin.com/in/CodeMonkeyG" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+			<li><a href="https://github.com/CodeMonkeyG" target="_blank" rel="noopener noreferrer">GitHub</a></li>
 		</ul>
 		<p>LinkedIn is a great place for professional outreach. GitHub shows hands-on technical work and active development style.</p>
 	</article>
