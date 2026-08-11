@@ -1,26 +1,34 @@
-# CodeMonkeyG.com
+# CodeMonkeyG
 
-A lightweight, interactive landing page for **CodeMonkeyG.com**.
+A simple multi-page profile website built with plain HTML, CSS, and PHP includes.
 
-## Features
+## Pages
 
-- **Random Monkey GIFs**: Dynamically serves one of four animated monkey GIFs on each page load. Clicking the monkey reloads the page to show another variant.
-- **Konami Code Easter Egg**: Typing the Konami Code (`↑ ↑ ↓ ↓ ← → ← → B A`) triggers a full-screen confetti animation and plays an airhorn sound effect.
+- Home: a short intro and a random monkey hero image.
+- About: filler biography content and a quick facts panel.
+- Work History: a simple placeholder timeline.
+- Contact: placeholder contact details and social links.
 
 ## Project Structure
 
 ```
 CodeMonkeyG/
-├── README.md           # Project documentation
-├── index.php           # Page markup, CSS styling, and Easter Egg logic
+├── assets/
+│   └── styles.css      # Shared site styles
+├── partials/
+│   ├── header.php      # Shared document head and navigation
+│   └── footer.php      # Shared footer and closing markup
+├── about.php           # About page
+├── contact.php         # Contact page
+├── index.php           # Home page
+├── work-history.php    # Work history page
 ├── images/
-│   ├── confetti.gif    # Easter egg confetti animation
-│   ├── monkey_1.gif    # Monkey GIF variant 1
-│   ├── monkey_2.gif    # Monkey GIF variant 2
-│   ├── monkey_3.gif    # Monkey GIF variant 3
-│   └── monkey_4.gif    # Monkey GIF variant 4
+│   ├── monkey_1.gif
+│   ├── monkey_2.gif
+│   ├── monkey_3.gif
+│   └── monkey_4.gif
 └── sounds/
-    └── noise.wav       # Airhorn audio clip
+    └── noise.wav
 ```
 
 ## Running Locally
@@ -32,3 +40,5 @@ php -S localhost:8000
 ```
 
 Then navigate to `http://localhost:8000` in your browser.
+
+If you are using Docker, the existing compose setup still exposes the site through the nginx container.
