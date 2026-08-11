@@ -48,21 +48,25 @@ require __DIR__ . '/partials/header.php';
 	<div class="industry-platform-grid">
 		<article class="card">
 			<h3>Core Capabilities</h3>
-			<ul class="stack-list">
-				<li>Systems integration and process automation</li>
-				<li>Technical architecture and implementation planning</li>
-				<li>API-driven development and vendor coordination</li>
-				<li>Operational troubleshooting and production support</li>
-			</ul>
+			<p>
+				<ul class="stack-list">
+					<li>Systems integration and process automation</li>
+					<li>Technical architecture and implementation planning</li>
+					<li>API-driven development and vendor coordination</li>
+					<li>Operational troubleshooting and production support</li>
+				</ul>
+			</p>
 		</article>
 		<article class="card">
 			<h3>Platform Coverage</h3>
-			<ul class="stack-list">
-				<li>Laravel, Docker, AWS, PostgreSQL</li>
-				<li>REST APIs and OpenAPI documentation</li>
-				<li>Identity standards including OAuth 2.0, SAML, and OIDC</li>
-				<li>Hospitality and operations integrations including HTNG-based workflows</li>
-			</ul>
+			<p>
+				<ul class="stack-list">
+					<li>Laravel, Docker, AWS, PostgreSQL</li>
+					<li>REST APIs and OpenAPI documentation</li>
+					<li>Identity standards including OAuth 2.0, SAML, and OIDC</li>
+					<li>Hospitality and operations integrations including HTNG-based workflows</li>
+				</ul>
+			</p>
 		</article>
 	</div>
 </section>
