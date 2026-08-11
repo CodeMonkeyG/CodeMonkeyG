@@ -10,19 +10,12 @@ require __DIR__ . '/partials/header.php';
 
 <section class="hero">
 	<div class="hero-copy">
-		<p class="eyebrow">CodeMonkeyG</p>
 		<h1>Technology that helps local businesses run better.</h1>
 		<p class="lede">CodeMonkeyG brings enterprise-grade architecture, integration experience, and operational discipline to small and medium local businesses that need smarter systems without unnecessary complexity.</p>
 		<div class="hero-actions">
 			<a class="button" href="/about.php">About</a>
 			<a class="button button-secondary" href="/work-history.php">Work History</a>
 		</div>
-	</div>
-	<div class="hero-visual">
-		<a class="monkey-card" href="/" title="Click to load another monkey">
-			<img src="/images/monkey_<?php echo htmlspecialchars((string) $heroMonkey, ENT_QUOTES); ?>.gif" alt="Random monkey illustration" />
-		</a>
-		<p class="caption">Click the monkey to reshuffle the mascot. Konami code still works site-wide.</p>
 	</div>
 </section>
 
