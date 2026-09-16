@@ -1,0 +1,30 @@
+@import url("./tailwind.min.css");
+
+:root {
+  --primary: #0099ff;
+  --secondary: #ff9900;
+  --dark-grey: #181818;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+::selection {
+  background-color: #ff9900;
+  color: #000000;
+}
+
+/* LinkTree button hover transforms */
+.linktree-btn {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.linktree-btn:hover {
+  transform: translateY(-2px);
+}

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giovanni Alvarez | CodeMonkeyG</title>
+  <meta name="description" content="12+ years building enterprise architecture, high-concurrency systems, and practical technology for businesses.">
+  <meta name="author" content="Giovanni Alvarez">
+  <meta property="og:title" content="Giovanni Alvarez | CodeMonkeyG">
+  <meta property="og:description" content="12+ years building enterprise architecture, high-concurrency systems, and practical technology for businesses.">
+  <meta property="og:image" content="./images/avatar.jpg">
+  <meta property="og:url" content="https://codemonkeyg.com">
+
+  <!-- Local stylesheets pulling from local server via relative paths -->
+  <link rel="stylesheet" href="./assets/css/tailwind.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Style tag pulling from server using local relative paths -->
+  <style>
+    @import url("./assets/css/tailwind.min.css");
+    @import url("./assets/css/style.css");
+
+    #confetti {
+      display: none;
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    #confetti.is-visible {
+      display: block;
+    }
+  </style>
+
+  <!-- Tailwind script pulling from local server via relative path -->
+  <script src="./assets/js/tailwind.js"></script>
+  <script>
+    if (window.tailwind) {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0099ff',
+              secondary: '#ff9900',
+              darkgrey: '#181818',
+            }
+          }
+        }
+      };
+    }
+  </script>
+</head>
+<body class="bg-black text-white min-h-screen py-10 sm:py-20 px-4 sm:px-6 selection:bg-[#ff9900] selection:text-black">
+
+  <!-- Confetti Easter Egg Image -->
+  <img id="confetti" src="./images/confetti.gif" alt="Hooray Confetti">
+
+  <!-- Floating Toast Notification for Mobile Share / Copy -->
+  <div id="share-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-300 px-6 py-3.5 rounded-2xl bg-neutral-900/95 border border-[#0099ff] text-white text-sm font-mono shadow-2xl flex items-center gap-3">
+    <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#0099ff]/20 text-[#0099ff] font-bold text-sm">✓</span>
+    <span id="toast-message">Profile link copied to clipboard!</span>
+  </div>
+
+  <!-- Single Column Center Container with generous, breathable padding -->
+  <main class="w-full max-w-2xl mx-auto bg-[#181818] border border-neutral-800/90 rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl space-y-12 sm:space-y-14">
+
+    <!-- Header & Brand Intro -->
+    <header class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-700 text-xs sm:text-sm font-mono text-[#0099ff]">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#0099ff] animate-pulse"></span>
+        codemonkeyg.com
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white pt-1">
+        Giovanni Alvarez
+      </h1>
+      <div class="flex justify-center pt-2 pb-1">
+        <img 
+          src="./images/avatar.jpg" 
+          alt="Giovanni Alvarez" 
+          class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-[#0099ff] shadow-xl shadow-[#0099ff]/20 ring-4 ring-neutral-900"
+        >
+      </div>
+      <p class="text-sm sm:text-base font-medium text-neutral-400">
+        Founding Engineer &middot; Tech Lead &middot; Solo-Led Delivery
+      </p>
+    </header>
+
+    <!-- QR Code Section: Show/Hide controls and full-width container -->
+    <section class="space-y-4" aria-label="QR Code">
+      <!-- QR Controls Bar -->
+      <div class="flex items-center justify-between gap-3">
+        <!-- Show / Hide Button -->
+        <button 
+          id="toggle-qr-btn" 
+          type="button" 
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-[#0099ff] text-xs sm:text-sm font-mono text-white transition shadow-sm cursor-pointer"
+          aria-expanded="false"
+          aria-controls="qr-container"
+        >
+          <svg id="qr-eye-icon" class="w-4 h-4 text-[#0099ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+          </svg>
+          <span id="qr-toggle-label">Show QR Code</span>
+        </button>
+
+        <!-- Quick Share Header Button -->
+        <button 
+          id="quick-share-btn"
+          type="button"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-[#ff9900] text-xs sm:text-sm font-mono text-neutral-300 hover:text-white transition shadow-sm cursor-pointer"
+          title="Share Profile via Mobile"
+        >
+          <svg class="w-4 h-4 text-[#ff9900]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+          </svg>
+          <span>Share</span>
+        </button>
+      </div>
+
+      <!-- Full-Width QR Code Container (hidden by default) -->
+      <div id="qr-container" class="hidden space-y-2.5 transition-all duration-300">
+        <div class="w-full aspect-square rounded-2xl bg-white p-7 sm:p-10 flex items-center justify-center relative overflow-hidden border-2 border-[#0099ff] shadow-xl shadow-[#0099ff]/10">
+          <!-- Corner Highlight Markers in Secondary #ff9900 -->
+          <span class="absolute top-2.5 left-2.5 w-6 h-6 border-t-4 border-l-4 border-[#ff9900]" aria-hidden="true"></span>
+          <span class="absolute top-2.5 right-2.5 w-6 h-6 border-t-4 border-r-4 border-[#ff9900]" aria-hidden="true"></span>
+          <span class="absolute bottom-2.5 left-2.5 w-6 h-6 border-b-4 border-l-4 border-[#ff9900]" aria-hidden="true"></span>
+          <span class="absolute bottom-2.5 right-2.5 w-6 h-6 border-b-4 border-r-4 border-[#ff9900]" aria-hidden="true"></span>
+
+          <!-- QR Code Graphic with ?ref=qr embedded -->
+          <img 
+            src="./images/qr-code.svg" 
+            alt="QR Code Placeholder - Scan to open site" 
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <div class="flex items-center justify-between text-xs font-mono tracking-wider text-neutral-400 px-1">
+          <span>Scan to view &amp; share</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Linktree-Style Buttons Stack -->
+    <nav class="space-y-3.5 pt-2" aria-label="Quick Links">
+      <!-- LinkedIn Button -->
+      <a 
+        href="https://www.linkedin.com/in/codemonkeyg/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="linktree-btn group w-full flex items-center justify-between px-6 py-4.5 sm:py-5 rounded-2xl bg-[#202022] hover:bg-[#0099ff] border border-[#0099ff]/40 hover:border-[#0099ff] text-white transition-all shadow-md"
+      >
+        <div class="flex items-center gap-4">
+          <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0099ff]/20 text-[#0099ff] group-hover:bg-white/20 group-hover:text-white transition">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.66 1.66 0 1 0-.01 3.32 1.66 1.66 0 0 0 .01-3.32Z"/>
+            </svg>
+          </span>
+          <div class="text-left">
+            <div class="font-bold text-base sm:text-lg text-white">LinkedIn</div>
+            <div class="text-xs sm:text-sm text-neutral-400 group-hover:text-white/80 font-mono">linkedin.com/in/codemonkeyg</div>
+          </div>
+        </div>
+        <svg class="w-5 h-5 text-neutral-400 group-hover:text-white transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+
+      <!-- GitHub Button -->
+      <a 
+        href="https://github.com/CodeMonkeyG" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="linktree-btn group w-full flex items-center justify-between px-6 py-4.5 sm:py-5 rounded-2xl bg-[#202022] hover:bg-[#ff9900] border border-[#ff9900]/40 hover:border-[#ff9900] text-white hover:text-black transition-all shadow-md"
+      >
+        <div class="flex items-center gap-4">
+          <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#ff9900]/20 text-[#ff9900] group-hover:bg-black/20 group-hover:text-black transition">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
+            </svg>
+          </span>
+          <div class="text-left">
+            <div class="font-bold text-base sm:text-lg text-white group-hover:text-black">GitHub</div>
+            <div class="text-xs sm:text-sm text-neutral-400 group-hover:text-black/80 font-mono">github.com/CodeMonkeyG</div>
+          </div>
+        </div>
+        <svg class="w-5 h-5 text-neutral-400 group-hover:text-black transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+
+      <!-- Direct Contact / Email Button -->
+      <a 
+        href="mailto:codemonkeyg@gmail.com" 
+        class="linktree-btn group w-full flex items-center justify-between px-6 py-4.5 sm:py-5 rounded-2xl bg-[#202022] hover:bg-neutral-600 border border-neutral-500/50 hover:border-neutral-400 text-white transition-all shadow-md"
+      >
+        <div class="flex items-center gap-4">
+          <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-700/80 text-neutral-300 group-hover:bg-white/20 group-hover:text-white transition">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </span>
+          <div class="text-left">
+            <div class="font-bold text-base sm:text-lg text-white">Email</div>
+            <div class="text-xs sm:text-sm text-neutral-400 group-hover:text-white/80 font-mono">codemonkeyg@gmail.com</div>
+          </div>
+        </div>
+        <svg class="w-5 h-5 text-neutral-400 group-hover:text-white transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    </nav>
+
+    <!-- Narrative Summary: About & Core Capabilities (<30s read) -->
+    <section class="space-y-4 pt-4 border-t border-neutral-800/90" aria-label="About and Core Capabilities">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#ff9900]"></span>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-[#ff9900]">About &amp; Capabilities</h2>
+      </div>
+
+      <p class="text-white text-base sm:text-lg leading-relaxed font-normal">
+        I got my start in the high pressure Bay Area startup ecosystem, where shipping bulletproof software under aggressive deadlines was everyday table stakes. Over the past 12+ years, I’ve architected enterprise cloud platforms, engineered complex systems integrations, and optimized high concurrency APIs serving millions of daily requests.
+      </p>
+
+      <p class="text-neutral-300 text-base sm:text-lg leading-relaxed font-normal">
+        Today, I bring that luxury service precision and architectural discipline directly to small and local businesses. Eliminating operational chaos, connecting fragmented tools, and building dependable digital infrastructure that just works without unnecessary corporate overhead.
+      </p>
+
+      <!-- Core Capabilities Quick Tags -->
+      <div class="flex flex-wrap gap-2 pt-2.5">
+        <span class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-mono bg-neutral-900 border border-neutral-700 text-[#0099ff]">
+          Systems Integration &amp; Automation
+        </span>
+        <span class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-mono bg-neutral-900 border border-neutral-700 text-[#0099ff]">
+          Technical Architecture
+        </span>
+        <span class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-mono bg-neutral-900 border border-neutral-700 text-[#0099ff]">
+          API-Driven Development
+        </span>
+        <span class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-mono bg-neutral-900 border border-neutral-700 text-[#ff9900]">
+          Identity (OAuth, SAML, SSO)
+        </span>
+        <span class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-mono bg-neutral-900 border border-neutral-700 text-[#ff9900]">
+          AWS &middot; Docker &middot; PostgreSQL
+        </span>
+      </div>
+    </section>
+
+    <!-- Detailed Experience Section (Verbose) -->
+    <section class="space-y-10 pt-4 border-t border-neutral-800/90" aria-label="Experience">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="h-2 w-7 rounded-full bg-[#0099ff]"></span>
+          <h2 class="text-sm font-mono uppercase tracking-widest text-[#0099ff]">Work Experience</h2>
+        </div>
+        <span class="text-xs sm:text-sm font-mono text-neutral-400">12+ Years Delivery</span>
+      </div>
+
+      <div class="space-y-10 sm:space-y-12">
+        <!-- 1. KYC Hospitality -->
+        <article class="space-y-3.5">
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Founding Engineer</h3>
+          </div>
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">Apr 2016 - Jul 2026 &middot; 10 yrs 4 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">KYC Hospitality &middot; Full-Time</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area &middot; Remote</div>
+          </div>
+          <p class="text-base text-neutral-300 leading-relaxed">
+            Sole founding engineer building an enterprise SaaS platform from inception that replaced 35+ fragmented niche tools into a unified luxury hospitality standard. Co-drove enterprise sales deals with the CEO via technical consulting and live demonstrations to secure tier 1 global hotel brands.
+          </p>
+          <ul class="space-y-3 pl-5 border-l-2 border-[#0099ff]/40 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <li>
+              <strong class="text-white">Executive Impact &amp; Architecture:</strong> Built enterprise SaaS replacing 35+ tools; led architecture modernization from CodeIgniter to Laravel, Vue, Docker, AWS, and Postgres; set engineering standards for standups, mentoring, 24/7 incident response, and disaster recovery.
+            </li>
+            <li>
+              <strong class="text-white">PMS Integrations &amp; API Platform:</strong> Architected real time pipelines for Oracle Opera (FIAS OXI), Infor HMS (HTNG), and FOSSE (VBScript); exposed high concurrency OpenAPI/Postman endpoints for IoT and vendor partners (e.g., Lutron).
+            </li>
+            <li>
+              <strong class="text-white">Cloud Infrastructure &amp; Dossier:</strong> Managed AWS stack, routing rules for pre-release testing, and emergency PMS outage overrides; unified isolated property PMS rosters, resolving cross property database ID conflicts; led third-party vendor onboarding.
+            </li>
+            <li>
+              <strong class="text-white">Product Innovation &amp; ML Comms:</strong> Built automated housekeeping room assignment engine (cutting scheduling time from hours to minutes); built guest messaging (SMS, WhatsApp, IG, FB) with automated translation and auto-ticketing; developed offline first staff apps.
+            </li>
+            <li>
+              <strong class="text-white">Background Automation:</strong> Built queue workers for automated night audits, survey dispatches, and event driven alerts.
+            </li>
+          </ul>
+          <div class="pt-2">
+            <p class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Laravel</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Vue</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Docker</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">AWS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PostgreSQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CodeIgniter</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">OpenAPI / Postman</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Oracle Opera (FIAS/OXI)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Infor HMS (HTNG)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">FOSSE</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Lutron IoT</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Redis / Queues</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">SMS / WhatsApp APIs</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. SAP -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Tier 2 Client Services Engineer</h3>
+          </div>
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">Apr 2017 - Jun 2018 &middot; 1 yr 3 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">SAP (Gigya Business Unit)</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area &middot; Remote</div>
+          </div>
+          <p class="text-base text-neutral-300 leading-relaxed">
+            Having been acquired by SAP, served as an integral part of the merger process sharing both technical knowledge of Gigya as well as process knowledge. Stepped into a direct client facing Tier 2 role as a unique hybrid of Engineer meets Tech Support meets Sales Support, advising clients on best practices for heavily customized implementations with the Gigya platform (Gold Standard service).
+          </p>
+          <ul class="space-y-3 pl-5 border-l-2 border-[#ff9900]/40 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <li>
+              <strong class="text-white">Custom Integration Consulting:</strong> Consulted clients on heavily customized integrations with the Gigya platform, diving into unfamiliar source code to isolate and debug issues quickly.
+            </li>
+            <li>
+              <strong class="text-white">Cross-Platform Demo Engineering:</strong> Developed and maintained product demo applications across platforms including Android, iOS, JavaScript, and PHP to empower internal sales teams and client architects.
+            </li>
+            <li>
+              <strong class="text-white">Technical Documentation:</strong> Created internally facing documentation and advised on client facing documentation standards.
+            </li>
+          </ul>
+          <div class="pt-2">
+            <p class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CSS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">NoSQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Javascript</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Git</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Android Studio</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Eclipse</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XCode (Objective C)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Wordpress</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Drupal</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">SalesForce</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Gigya -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Professional Services Engineer &amp; Client Services Engineer</h3>
+          </div>
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">Jul 2014 - Apr 2017 &middot; 2 yrs 10 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">Gigya</div>
+            <div class="text-xs font-mono text-neutral-400">Mountain View, CA</div>
+          </div>
+          <p class="text-base text-neutral-300 leading-relaxed">
+            Combined technical engineering with client consulting in a direct client facing hybrid role. Having proven myself as a Client Services Engineer, advanced into Gigya's Professional Services team to take responsibility for some of Gigya's largest enterprise clients.
+          </p>
+          <ul class="space-y-3 pl-5 border-l-2 border-[#0099ff]/40 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <li>
+              <strong class="text-white">Professional Services Engineer (Aug 2015 - Apr 2017):</strong> Responsible for Gigya's largest clients; played an integral part in conversations regarding platform architecture, providing nuanced knowledge of platform capabilities while maintaining great rapport across client teams; acted as technical meeting leader to drive agendas clearly and efficiently.
+            </li>
+            <li>
+              <strong class="text-white">Client Services Engineer (Jul 2014 - Aug 2015):</strong> Advised clients on best practices for heavily customized integrations; dove into unfamiliar source code to quickly debug production issues; built and maintained demo applications across Android, iOS, JavaScript, and PHP.
+            </li>
+            <li>
+              <strong class="text-white">Documentation &amp; Enablement:</strong> Created internal engineering documentation and advised on client facing documentation to empower internal teams and improve client support.
+            </li>
+          </ul>
+          <div class="pt-2">
+            <p class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CSS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">NoSQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Javascript</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Git</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Android Studio</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Eclipse</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XCode (Objective C)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Wordpress</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Drupal</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">SalesForce</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. AVRS, Inc. -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Senior Software Engineer</h3>
+          </div>
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">Feb 2013 - Jul 2014 &middot; 1 yr 6 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">AVRS, Inc. &mdash; Acquired by CVR</div>
+            <div class="text-xs font-mono text-neutral-400">Petaluma, CA</div>
+          </div>
+          <p class="text-base text-neutral-300 leading-relaxed">
+            In an attempt to get AVRS to be the leader in DMV registration services for California, worked with a team of engineers to create the fastest, most stable, and most accessible software that the industry had ever seen.
+          </p>
+          <ul class="space-y-3 pl-5 border-l-2 border-[#ff9900]/40 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <li>
+              <strong class="text-white">Full-Stack SPA Transition:</strong> During the transition from a legacy platform to a new single page platform, developed and ported the front and back ends to many new and existing features used both by the business and customers.
+            </li>
+            <li>
+              <strong class="text-white">Platform Testing &amp; Regressions:</strong> Performed code reviews, developed CasperJS testing scripts to protect against platform wide regressions, maintained detailed Git/SVN history, and leveraged Phabricator ticketing to keep projects on track.
+            </li>
+            <li>
+              <strong class="text-white">Cross-Department Leadership:</strong> Took ownership of filling communication gaps between the development, operations, and marketing departments ensuring a streamlined and effective approach to developing new product offerings.
+            </li>
+          </ul>
+          <div class="pt-2">
+            <p class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CSS / LESS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Javascript</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">NodeJS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">AJAX</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">BackboneJS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Twitter Bootstrap</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Memcached</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Redis</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CasperJS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">GIT / SVN</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Phabricator</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. StopTheHacker Inc. -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Senior Software Engineer</h3>
+          </div>
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">Jan 2012 - Feb 2013 &middot; 1 yr 2 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">StopTheHacker Inc. &mdash; Acquired by Cloudflare</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area</div>
+          </div>
+          <p class="text-base text-neutral-300 leading-relaxed">
+            Seeing the need for a complete user experience overhaul, delivered a complete makeover of the User Dashboard combining pleasing visuals and well-thought-out workflows that continues to attract and retain customers.
+          </p>
+          <ul class="space-y-3 pl-5 border-l-2 border-[#0099ff]/40 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <li>
+              <strong class="text-white">Dashboard Overhaul &amp; i18n Layer:</strong> Designed, developed, and delivered the User Dashboard with an internationalization layer providing German translations in its first iteration and laying the foundation for further global localization.
+            </li>
+            <li>
+              <strong class="text-white">Availability &amp; Speed Monitoring:</strong> Developed internal and customer facing tools for monitoring website availability and page load speeds.
+            </li>
+            <li>
+              <strong class="text-white">Financial Systems &amp; Email Delivery:</strong> Built a new front end for tracking user accounts' financial standing via Bluesnap, and engineered an upgraded customer email delivery system using SendGrid's API.
+            </li>
+          </ul>
+          <div class="pt-2">
+            <p class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CSS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Javascript</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">NodeJS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">AJAX</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Highcharts</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Bluesnap</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">SendGrid API</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Zend Framework</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Wordpress</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Adobe Photoshop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Dynamic Duo Designs -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Co-Founder, Lead Developer</h3>
+          </div>
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">Sep 2007 - Dec 2011 &middot; 4 yrs 4 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">Dynamic Duo Designs</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area</div>
+          </div>
+          <p class="text-base text-neutral-300 leading-relaxed">
+            Acted as primary web developer in a two-person agency, developing small to medium-sized business websites using varying platforms including WordPress, MVC frameworks, and custom built solutions. Built an extensive portfolio of over 100 global clients and advertising media branching across numerous industries.
+          </p>
+          <ul class="space-y-3 pl-5 border-l-2 border-[#ff9900]/40 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <li>
+              <strong class="text-white">Custom Web &amp; CMS Solutions:</strong> Developed bespoke web applications and custom Content Management Systems for over 100 global clients.
+            </li>
+            <li>
+              <strong class="text-white">E-Commerce &amp; MVC Delivery:</strong> Engineered custom e-commerce engines and MVC architectures tailored to small and medium business workflows.
+            </li>
+            <li>
+              <strong class="text-white">Interactive Media:</strong> Designed and deployed rich digital media, promotional assets, and interactive interfaces using ActionScript, Photoshop, and Illustrator.
+            </li>
+          </ul>
+          <div class="pt-2">
+            <p class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CSS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Javascript</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">AJAX</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">E-commerce</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Custom CMS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Codeigniter</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Actionscript 3.0</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Wordpress</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Adobe Photoshop</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Adobe Illustrator</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. CodeMonkeyG -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Freelance Developer</h3>
+          </div>
+          <div class="flex items-baseline justify-between flex-wrap gap-1">
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">Sep 2008 - Jun 2011 &middot; 2 yrs 10 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">CodeMonkeyG</div>
+            <div class="text-xs font-mono text-neutral-400">Remote &middot; Contract</div>
+          </div>
+          <p class="text-base text-neutral-300 leading-relaxed">
+            Operating under the CodeMonkeyG persona, performed contractual software development, frontend engineering, and mobile/web development to the complete satisfaction of all clients.
+          </p>
+          <ul class="space-y-3 pl-5 border-l-2 border-[#0099ff]/40 text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <li>
+              <strong class="text-white">Contractual Engineering:</strong> Shipped custom web applications, responsive frontend layouts, and dynamic web services for diverse client requirements.
+            </li>
+            <li>
+              <strong class="text-white">Multi-Framework Integration:</strong> Implemented solutions across BackboneJS, CodeIgniter, WordPress, and mobile prototypes with Android Studio and Xcode.
+            </li>
+          </ul>
+          <div class="pt-2">
+            <p class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XML</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CSS / LESS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">NoSQL</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Javascript</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Git</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Android Studio</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">XCode (Objective C)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Wordpress</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Bootstrap</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Codeigniter</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">BackboneJS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Adobe Photoshop</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-8 border-t border-neutral-800/80 text-center space-y-2.5 text-sm text-neutral-400">
+      <div class="flex items-center justify-center gap-4 text-neutral-300">
+        <a href="https://www.linkedin.com/in/codemonkeyg/" target="_blank" rel="noopener noreferrer" class="hover:text-[#0099ff] transition">LinkedIn</a>
+        <span>&middot;</span>
+        <a href="https://github.com/CodeMonkeyG" target="_blank" rel="noopener noreferrer" class="hover:text-[#ff9900] transition">GitHub</a>
+        <span>&middot;</span>
+        <a href="mailto:codemonkeyg@gmail.com" class="hover:text-white transition">Email</a>
+      </div>
+      <p>&copy; Giovanni Alvarez &middot; CodeMonkeyG</p>
+      <p class="text-xs text-neutral-500">Tip: ↑ ↑ ↓ ↓ ← → ← → B A</p>
+    </footer>
+
+  </main>
+
+  <!-- Interactive Logic: QR Show/Hide, QR Arrival Detection, and Mobile Sharing -->
+  <script>
+    (function () {
+      const qrContainer = document.getElementById('qr-container');
+      const toggleQrBtn = document.getElementById('toggle-qr-btn');
+      const qrToggleLabel = document.getElementById('qr-toggle-label');
+      const qrEyeIcon = document.getElementById('qr-eye-icon');
+      const shareToast = document.getElementById('share-toast');
+      const toastMsg = document.getElementById('toast-message');
+
+      // Check if arriving from QR scan (?ref=qr, ?source=qr, ?src=qr, or #qr)
+      const params = new URLSearchParams(window.location.search);
+      const isFromQr = params.get('ref') === 'qr' || 
+                         params.get('source') === 'qr' || 
+                         params.get('src') === 'qr' || 
+                         window.location.hash === '#qr';
+
+      function setQrVisible(visible) {
+        if (visible) {
+          qrContainer.classList.remove('hidden');
+          toggleQrBtn.setAttribute('aria-expanded', 'true');
+          if (qrToggleLabel) qrToggleLabel.textContent = 'Hide QR Code';
+          if (qrEyeIcon) {
+            qrEyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"/>';
+          }
+        } else {
+          qrContainer.classList.add('hidden');
+          toggleQrBtn.setAttribute('aria-expanded', 'false');
+          if (qrToggleLabel) qrToggleLabel.textContent = 'Show QR Code';
+          if (qrEyeIcon) {
+            qrEyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>';
+          }
+        }
+      }
+
+      // QR code is always hidden by default on page load
+      setQrVisible(false);
+
+      if (toggleQrBtn) {
+        toggleQrBtn.addEventListener('click', function () {
+          const isCurrentlyHidden = qrContainer.classList.contains('hidden');
+          setQrVisible(isCurrentlyHidden);
+        });
+      }
+
+      // Toast notification helper
+      function showToast(text) {
+        if (toastMsg) toastMsg.textContent = text;
+        if (shareToast) {
+          shareToast.classList.remove('opacity-0');
+          shareToast.classList.add('opacity-100');
+          setTimeout(function () {
+            shareToast.classList.remove('opacity-100');
+            shareToast.classList.add('opacity-0');
+          }, 2600);
+        }
+      }
+
+      // Mobile share sheet / clipboard fallback
+      function handleShare() {
+        const shareUrl = window.location.origin + window.location.pathname;
+        const shareData = {
+          title: 'Giovanni Alvarez | CodeMonkeyG',
+          text: 'Giovanni Alvarez - Senior Systems Architect & Tech Lead (@CodeMonkeyG)',
+          url: shareUrl
+        };
+
+        if (navigator.share) {
+          navigator.share(shareData).catch(function (err) {
+            if (err && err.name !== 'AbortError') {
+              copyShareUrl(shareUrl);
+            }
+          });
+        } else {
+          copyShareUrl(shareUrl);
+        }
+      }
+
+      function copyShareUrl(url) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            showToast('Profile link copied to clipboard!');
+          }).catch(function () {
+            promptFallback(url);
+          });
+        } else {
+          promptFallback(url);
+        }
+      }
+
+      function promptFallback(url) {
+        window.prompt('Copy this link to share:', url);
+      }
+
+      const linktreeShareBtn = document.getElementById('linktree-share-btn');
+      const quickShareBtn = document.getElementById('quick-share-btn');
+      if (linktreeShareBtn) linktreeShareBtn.addEventListener('click', handleShare);
+      if (quickShareBtn) quickShareBtn.addEventListener('click', handleShare);
+    })();
+  </script>
+
+  <!-- Konami Code Easter Egg Script -->
+  <script>
+    (function () {
+      var userInput = [];
+      var validCode = '38384040373937396665';
+      var maxInputArrayLength = 10;
+      var confetti = document.getElementById('confetti');
+      var confettiSrc = confetti ? confetti.getAttribute('src') : '';
+      var hornAudio = new Audio('./sounds/noise.wav');
+
+      window.addEventListener('keyup', function (e) {
+        var strokedKey = e.keyCode || e.which || false;
+        if (!strokedKey) return false;
+
+        userInput.push(strokedKey);
+        if (userInput.length > maxInputArrayLength) {
+          userInput = userInput.slice(-maxInputArrayLength);
+        }
+
+        if (userInput.join('') === validCode && confetti) {
+          confetti.classList.add('is-visible');
+          confetti.setAttribute('src', confettiSrc);
+          hornAudio.play().catch(function() {});
+          setTimeout(function () {
+            confetti.classList.remove('is-visible');
+          }, 13500);
+        }
+      }, true);
+    })();
+  </script>
+</body>
+</html>

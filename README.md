@@ -1,58 +1,46 @@
 # CodeMonkeyG
 
-A solo-led, multi-page profile website built with plain HTML, CSS, and PHP includes.
-
-The site presents a clear, founder-driven narrative focused on practical technology solutions for small and medium local businesses.
-
-## Pages
-
-- Home: an intro and executive summary with core capabilities and platform coverage.
-- About: founder background, approach, and quick facts.
-- Work History: experience timeline, key wins, industries, and major platforms.
-- Contact: approachable outreach flow, response expectations, and resume download.
+A simple single-page profile website styled with Tailwind CSS, utilizing local relative paths for scripts and stylesheets.
 
 ## Features
 
-- Shared layout: `partials/header.php` and `partials/footer.php` provide reusable structure and navigation.
-- Single stylesheet: `assets/styles.css` drives all page styling and responsive behavior.
-- Konami code easter egg: available site-wide, with confetti animation and sound.
-- Resume download section: available on Contact via `/assets/CodeMonkeyG-Resume.pdf`.
+- **Single-Page Website**: Clean, responsive layout in `index.html`.
+- **Local Tailwind CSS**: Styled with Tailwind CSS without external CDN dependencies (`assets/js/tailwind.js` and `assets/css/tailwind.min.css`).
+- **Structured Content Archive**: Complete archive of all previous site copy preserved in markdown format under [`site-text/`](site-text/README.md).
+- **Easter Egg**: Preserved Konami code (`↑ ↑ ↓ ↓ ← → ← → B A`) celebration.
 
 ## Project Structure
 
 ```
 CodeMonkeyG/
+├── index.html            # Main site landing page
 ├── assets/
-│   └── styles.css      # Shared site styles
-├── partials/
-│   ├── header.php      # Shared document head and navigation
-│   └── footer.php      # Shared footer, closing markup, and Konami script
-├── about.php           # About page
-├── contact.php         # Contact page
-├── index.php           # Home page
-├── work-history.php    # Work history page
-├── images/
-│   ├── monkey_1.gif
-│   ├── monkey_2.gif
-│   ├── monkey_3.gif
-│   └── monkey_4.gif
-└── sounds/
-    └── noise.wav
+│   ├── css/
+│   │   ├── style.css
+│   │   └── tailwind.min.css
+│   └── js/
+│       └── tailwind.js
+├── site-text/            # Structured Markdown archive of previous site text
+│   ├── README.md
+│   ├── home.md
+│   ├── about.md
+│   ├── work-history.md
+│   ├── contact.md
+│   └── shared-elements.md
+├── images/               # Media assets
+└── sounds/               # Audio assets
 ```
 
 ## Running Locally
 
-You can serve this project using PHP's built-in development server:
+Serve using any local static file server:
 
 ```bash
-php -S localhost:8000
+# Python
+python3 -m http.server 8000
+
+# or Node / npx
+npx serve .
 ```
 
-Then navigate to `http://localhost:8000` in your browser.
-
-If you are using Docker, the existing compose setup still exposes the site through the nginx container.
-
-## Notes
-
-- The site copy is intentionally written in a single-speaker, founder-led voice.
-- If the resume file is missing, add it at `assets/CodeMonkeyG-Resume.pdf` to enable the download button.
+Or via Docker Compose if running the existing Nginx container setup.
