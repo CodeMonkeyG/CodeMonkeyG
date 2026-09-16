@@ -2,6 +2,7 @@ services:
   nginx:
     container_name: codemonkeyg-nginx
     image: nginx:alpine
+    restart: unless-stopped
     ports:
       - "8083:80"
       - "8443:443"
@@ -15,6 +16,7 @@ services:
 
   php:
     container_name: codemonkeyg-php
+    restart: unless-stopped
     build:
       context: .
       dockerfile: docker/php/Dockerfile
