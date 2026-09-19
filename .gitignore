@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+blog/node_modules/
+
+# Astro build and cache outputs
+.astro/
+blog/.astro/
+dist/
+blog/dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+blog/.env
+blog/.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Docker certbot temporary files
+docker/certbot/www/
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

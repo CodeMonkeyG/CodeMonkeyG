@@ -145,6 +145,30 @@
 
     <!-- Linktree-Style Buttons Stack -->
     <nav class="space-y-3.5 pt-2" aria-label="Quick Links">
+      <!-- Tech Blog Button -->
+      <a 
+        href="/blog" 
+        class="linktree-btn group w-full flex items-center justify-between px-6 py-2 sm:py-5 rounded-2xl bg-[#202022] hover:bg-[#0099ff] border border-[#0099ff]/50 hover:border-[#0099ff] text-white transition-all shadow-md"
+      >
+        <div class="flex items-center gap-4">
+          <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0099ff]/20 text-[#0099ff] group-hover:bg-white/20 group-hover:text-white transition">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </span>
+          <div class="text-left">
+            <div class="font-bold text-base sm:text-lg text-white">Engineering Blog</div>
+            <div class="text-xs sm:text-sm text-neutral-400 group-hover:text-white/80 font-mono">codemonkeyg.com/blog</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="hidden sm:inline-block px-2 py-0.5 rounded-full text-[10px] font-mono uppercase bg-[#0099ff]/20 text-[#0099ff] group-hover:bg-white/20 group-hover:text-white transition">New</span>
+          <svg class="w-5 h-5 text-neutral-400 group-hover:text-white transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </div>
+      </a>
+
       <!-- LinkedIn Button -->
       <a 
         href="https://www.linkedin.com/in/codemonkeyg/" 
@@ -619,6 +643,8 @@
     <!-- Footer -->
     <footer class="pt-8 border-t border-neutral-800/80 text-center space-y-2.5 text-sm text-neutral-400">
       <div class="flex items-center justify-center gap-4 text-neutral-300">
+        <a href="/blog" class="hover:text-[#0099ff] transition">Blog</a>
+        <span>&middot;</span>
         <a href="https://www.linkedin.com/in/codemonkeyg/" target="_blank" rel="noopener noreferrer" class="hover:text-[#0099ff] transition">LinkedIn</a>
         <span>&middot;</span>
         <a href="https://github.com/CodeMonkeyG" target="_blank" rel="noopener noreferrer" class="hover:text-[#ff9900] transition">GitHub</a>

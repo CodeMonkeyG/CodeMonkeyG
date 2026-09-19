@@ -1,0 +1,26 @@
+---
+interface Props {
+  tag: string;
+  count?: number;
+  active?: boolean;
+}
+
+const { tag, count, active = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<a
+  href={`${base}/tags/${encodeURIComponent(tag)}`}
+  class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs sm:text-[13px] font-mono border transition ${
+    active
+      ? 'bg-[#0099ff]/20 border-[#0099ff] text-[#0099ff]'
+      : 'bg-neutral-900 hover:bg-neutral-800 border-neutral-800 hover:border-[#0099ff]/50 text-neutral-300 hover:text-white'
+  }`}
+>
+  <span>#{tag}</span>
+  {count !== undefined && (
+    <span class="text-[10px] text-neutral-400 font-sans px-1.5 py-0.5 rounded-full bg-neutral-800">
+      {count}
+    </span>
+  )}
+</a>

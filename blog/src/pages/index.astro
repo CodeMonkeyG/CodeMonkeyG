@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import TagBadge from '../components/TagBadge.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Collect all tags and counts
+const tagCounts = posts.reduce<Record<string, number>>((acc, post) => {
+  post.data.tags.forEach((tag) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {});
+
+const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout 
+  title="Engineering Blog" 
+  description="Technical deep dives, systems architecture, containerization, and practical software engineering by Giovanni Alvarez (@CodeMonkeyG)."
+>
+  <div class="space-y-10">
+    <!-- Hero / Intro Section -->
+    <section class="space-y-4 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#ff9900]"></span>
+        <h1 class="text-xs font-mono uppercase tracking-widest text-[#ff9900]">Technical Blog</h1>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+          Engineering Notes &amp; Insights
+        </h2>
+        <p class="text-sm sm:text-base font-medium text-neutral-400 max-w-xl">
+          Deep dives into systems architecture, Docker containerization, high-concurrency design, and lessons learned from 15+ years in engineering leadership.
+        </p>
+      </div>
+
+      <!-- Quick Tag Filter Pills -->
+      {sortedTags.length > 0 && (
+        <div class="pt-2 space-y-2">
+          <div class="text-xs font-mono text-neutral-500 uppercase tracking-wider">Popular Topics:</div>
+          <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+            {sortedTags.map(([tag, count]) => (
+              <TagBadge tag={tag} count={count} />
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+
+    <!-- Post List Section -->
+    <section class="space-y-6 pt-6 border-t border-neutral-800/90" aria-label="Blog Posts">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <span>Latest Articles</span>
+          <span class="text-xs font-mono font-normal px-2 py-0.5 rounded-full bg-neutral-900 border border-neutral-800 text-[#0099ff]">
+            {posts.length} {posts.length === 1 ? 'post' : 'posts'}
+          </span>
+        </h3>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="space-y-4">
+          {posts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              slug={post.slug}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12 p-8 rounded-2xl bg-[#202022] border border-neutral-800 text-neutral-400 space-y-2 font-mono text-sm">
+          <p class="text-white font-bold">No posts published yet.</p>
+          <p>Check back soon for new articles!</p>
+        </div>
+      )}
+    </section>
+  </div>
+</BaseLayout>

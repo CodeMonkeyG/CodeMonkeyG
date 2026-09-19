@@ -1,0 +1,54 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = "Giovanni Alvarez - CodeMonkeyG Engineering Blog. Systems Architecture, High Concurrency, and Modern Infrastructure.",
+  image = "/images/avatar.jpg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | CodeMonkeyG Blog</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Giovanni Alvarez" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | CodeMonkeyG Blog`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={`${title} | CodeMonkeyG Blog`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body class="bg-black text-white min-h-screen py-6 sm:py-12 px-4 sm:px-6 selection:bg-[#ff9900] selection:text-black antialiased">
+    <main class="w-full max-w-3xl mx-auto bg-[#181818] border border-neutral-800/90 rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl space-y-10 sm:space-y-12">
+      <Header />
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<header class="space-y-6">
+  <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-neutral-800/80">
+    <!-- Brand Pill -->
+    <a 
+      href={`${base}/`}
+      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-[#0099ff] text-xs sm:text-sm font-mono text-[#0099ff] transition group"
+    >
+      <span class="w-2.5 h-2.5 rounded-full bg-[#0099ff] group-hover:bg-[#ff9900] animate-pulse"></span>
+      <span>codemonkeyg.com <span class="text-neutral-500">/</span> <span class="text-white font-bold">blog</span></span>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono" aria-label="Blog Navigation">
+      <a 
+        href="/" 
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-neutral-300 hover:text-white transition"
+        title="Return to Resume"
+      >
+        <svg class="w-3.5 h-3.5 text-[#0099ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span>Resume</span>
+      </a>
+
+      <a 
+        href={`${base}/`} 
+        class="px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-[#0099ff] text-neutral-300 hover:text-white transition"
+      >
+        Articles
+      </a>
+
+      <a 
+        href={`${base}/tags`} 
+        class="px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-neutral-300 hover:text-white transition"
+      >
+        Tags
+      </a>
+
+      <a 
+        href={`${base}/rss.xml`} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-[#ff9900]/10 border border-neutral-800 hover:border-[#ff9900] text-[#ff9900] transition"
+        title="RSS Feed"
+      >
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+          <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
+        </svg>
+        <span class="hidden sm:inline">RSS</span>
+      </a>
+    </nav>
+  </div>
+</header>

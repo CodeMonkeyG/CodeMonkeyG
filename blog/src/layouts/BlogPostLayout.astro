@@ -1,0 +1,205 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TagBadge from '../components/TagBadge.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author?: string;
+  tags?: string[];
+  heroImage?: string;
+  readingTime?: string;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  author = 'Giovanni Alvarez',
+  tags = [],
+  heroImage,
+  readingTime,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const formattedPubDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(pubDate);
+
+const formattedUpdateDate = updatedDate
+  ? new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(updatedDate)
+  : null;
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+  <article class="space-y-8">
+    <!-- Navigation back -->
+    <div class="flex items-center justify-between">
+      <a 
+        href={`${base}/`}
+        class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-neutral-400 hover:text-[#0099ff] transition"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        <span>All Posts</span>
+      </a>
+
+      <button 
+        id="share-post-btn"
+        type="button"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-xs font-mono text-neutral-300 hover:text-white transition cursor-pointer"
+        title="Share this article"
+      >
+        <svg class="w-3.5 h-3.5 text-[#ff9900]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+        </svg>
+        <span>Share</span>
+      </button>
+    </div>
+
+    <!-- Article Header -->
+    <header class="space-y-4 pb-6 border-b border-neutral-800/90">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#ff9900]"></span>
+        <span class="text-xs font-mono uppercase tracking-widest text-[#ff9900]">Engineering Article</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        {title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-neutral-300 leading-relaxed font-normal">
+        {description}
+      </p>
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs font-mono text-neutral-400">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
+            <img 
+              src="/images/avatar.jpg" 
+              alt={author} 
+              class="w-6 h-6 rounded-full object-cover border border-[#0099ff]"
+              onerror="this.style.display='none'"
+            />
+            <span class="text-neutral-200">{author}</span>
+          </div>
+          <span>&middot;</span>
+          <time datetime={pubDate.toISOString()}>{formattedPubDate}</time>
+          {formattedUpdateDate && (
+            <span class="text-neutral-500">(Updated: {formattedUpdateDate})</span>
+          )}
+        </div>
+
+        {readingTime && (
+          <span class="text-neutral-400">{readingTime}</span>
+        )}
+      </div>
+
+      {tags.length > 0 && (
+        <div class="flex flex-wrap items-center gap-1.5 pt-2">
+          {tags.map((tag) => (
+            <TagBadge tag={tag} />
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Optional Hero Image -->
+    {heroImage && (
+      <div class="rounded-2xl overflow-hidden border border-neutral-800">
+        <img src={heroImage} alt={title} class="w-full h-auto object-cover max-h-[420px]" />
+      </div>
+    )}
+
+    <!-- Markdown Content Container -->
+    <div class="prose prose-invert prose-neutral max-w-none prose-pre:border prose-pre:border-neutral-800 prose-pre:bg-[#121212] prose-headings:tracking-tight prose-a:text-[#0099ff] hover:prose-a:text-[#ff9900] prose-code:text-[#ff9900]">
+      <slot />
+    </div>
+
+    <!-- Article Footer / Bio Card -->
+    <div class="pt-8 border-t border-neutral-800/90 space-y-6">
+      <div class="p-6 rounded-2xl bg-[#202022] border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <img 
+          src="/images/avatar.jpg" 
+          alt="Giovanni Alvarez" 
+          class="w-14 h-14 rounded-full object-cover border-2 border-[#0099ff] ring-2 ring-neutral-900 shrink-0"
+          onerror="this.style.display='none'"
+        />
+        <div class="space-y-1 text-left">
+          <h2 class="text-base font-bold text-white">Giovanni Alvarez</h2>
+          <p class="text-xs sm:text-sm text-neutral-400">
+            15+ years building enterprise architecture, high-concurrency systems, and practical technology for businesses.
+          </p>
+          <div class="pt-1">
+            <a href="/" class="text-xs font-mono text-[#0099ff] hover:text-[#ff9900] inline-flex items-center gap-1 transition">
+              <span>View full resume &amp; portfolio</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs font-mono">
+        <a 
+          href={`${base}/`}
+          class="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          <span>Back to articles</span>
+        </a>
+
+        <a 
+          href="#" 
+          class="inline-flex items-center gap-1 text-neutral-400 hover:text-[#0099ff] transition"
+        >
+          <span>Back to top</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Sharing Script -->
+  <script>
+    const shareBtn = document.getElementById('share-post-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const shareData = {
+          title: document.title,
+          url: window.location.href,
+        };
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+          } catch (e) {
+            // User cancelled or share failed
+          }
+        } else if (navigator.clipboard) {
+          await navigator.clipboard.writeText(window.location.href);
+          const originalText = shareBtn.innerHTML;
+          shareBtn.innerHTML = '<span class="text-[#0099ff] font-bold">✓ Copied!</span>';
+          setTimeout(() => {
+            shareBtn.innerHTML = originalText;
+          }, 2000);
+        }
+      });
+    }
+  </script>
+</BaseLayout>

@@ -1,0 +1,8 @@
+node_modules
+blog/node_modules
+.git
+.astro
+blog/.astro
+dist
+blog/dist
+.DS_Store
