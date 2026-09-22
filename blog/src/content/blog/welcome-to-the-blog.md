@@ -7,9 +7,9 @@ tags: ["Astro", "WebDev", "Docker"]
 draft: false
 ---
 
-Welcome to the **CodeMonkeyG** engineering blog!
+Welcome to the **CodeMonkeyG** blog!
 
-For years, my web home at [codemonkeyg.com](https://codemonkeyg.com) has served as an interactive resume and showcase of my work as a Systems Architect and Founding Engineer. But as systems grow and architectures evolve, having a dedicated space to write in-depth technical breakdowns, share architectural post-mortems, and document hard-earned lessons has become essential.
+For years, my web home at [codemonkeyg.com](https://codemonkeyg.com) has served as an interactive resume and showcase of my work as a Systems Architect and Founding Engineer. But as systems grow and architectures evolve, having a dedicated space to write in-depth technical breakdowns, share architectural post-mortems, and document hard-earned lessons has become essential. It will also be place where I share some life philosophies that I feel influence the way I do what I do.
 
 ## Why Astro for Markdown Blogging?
 
@@ -20,27 +20,15 @@ When deciding how to build this blog, I evaluated several static site generators
 3. **Seamless Design Integration**: By utilizing Tailwind CSS configured with the same color palette as the main CodeMonkeyG resume (`#0099ff`, `#ff9900`, and `#181818`), the blog feels like an organic extension of the primary site.
 4. **Clean Subpath Routing**: With Astro's `base: '/blog'` configuration, the blog lives cleanly under the `/blog` subdirectory.
 
-```javascript
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+This lines up with my philosophy of using the right tools for the right job. With Astro I can connect to my server and write an article as markdown file. No need for whole admin panel. I can keep everything versioned in a git repository and back it up as easy as git push.
 
-export default defineConfig({
-  site: 'https://codemonkeyg.com',
-  base: '/blog',
-  integrations: [tailwind()],
-  server: {
-    host: '0.0.0.0',
-    port: 4321,
-  },
-});
-```
+While it may not be a tool for everyone, it was the right one for me to set up this blog.
 
 ## Docker Architecture
 
 Just like the main CodeMonkeyG site, the Astro blog runs inside Docker. An Nginx reverse proxy terminates SSL on the frontend and handles upstream traffic delegation:
 
-- Root `/` &rarr; Served by containerized Nginx &amp; PHP-FPM.
+- Root `/` &rarr; Served by containerized Nginx.
 - Subpath `/blog` &rarr; Reverse-proxied to the Astro container running on port `4321`.
 
 > "Simplicity is prerequisite for reliability." &mdash; Edsger W. Dijkstra
