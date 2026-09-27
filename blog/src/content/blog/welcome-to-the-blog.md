@@ -1,15 +1,18 @@
 ---
-title: "Launching the CodeMonkeyG Tech Blog"
-description: "Welcome to my engineering notebook. Here is why I built this markdown-powered blog with Astro, containerized it in Docker, and what topics to expect."
-pubDate: 2026-09-18
 author: "Giovanni Alvarez"
-tags: ["Astro", "WebDev", "Docker"]
+canonical_url: https://codemonkeyg.com/blog/posts/welcome-to-the-blog/
+date: 2026-09-18 00:00:00 UTC
+description: "Welcome to my engineering notebook. Here is why I built this markdown-powered blog with Astro, containerized it in Docker, and what topics to expect."
 draft: false
+pubDate: 2026-09-18
+published: true
+tags: ["Astro", "WebDev", "Docker"]
+title: "Launching the CodeMonkeyG Tech Blog"
 ---
 
 Welcome to the **CodeMonkeyG** blog!
 
-For years, my web home at [codemonkeyg.com](https://codemonkeyg.com) has served as an interactive resume and showcase of my work as a Systems Architect and Founding Engineer. But as systems grow and architectures evolve, having a dedicated space to write in-depth technical breakdowns, share architectural post-mortems, and document hard-earned lessons has become essential. It will also be place where I share some life philosophies that I feel influence the way I do what I do.
+For years, my web home at [codemonkeyg.com](https://codemonkeyg.com) has served as an interactive resume and showcase of my work as a Systems Architect and Founding Engineer. But as systems grow and architectures evolve, having a dedicated space to write in-depth technical breakdowns, share architectural post-mortems, and document hard-earned lessons has become essential. So I spun up [codemonkeyg.com/blog](https://codemonkeyg.com/blog) It will also be place where I share some life philosophies that I feel influence the way I do what I do.
 
 ## Why Astro for Markdown Blogging?
 
@@ -31,7 +34,7 @@ Just like the main CodeMonkeyG site, the Astro blog runs inside Docker. An Nginx
 - Root `/` &rarr; Served by containerized Nginx.
 - Subpath `/blog` &rarr; Reverse-proxied to the Astro container running on port `4321`.
 
-> "Simplicity is prerequisite for reliability." &mdash; Edsger W. Dijkstra
+> "Simplicity is prerequisite for reliability." - Edsger W. Dijkstra
 
 ## What to Expect Next
 
