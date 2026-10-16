@@ -25,6 +25,8 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const articleUrl = Astro.url.href;
+const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`;
 
 const formattedPubDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -45,7 +47,7 @@ const formattedUpdateDate = updatedDate
   <article class="space-y-8">
     <!-- Navigation back -->
     <div class="flex items-center justify-between">
-      <a 
+      <a
         href={`${base}/`}
         class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-neutral-400 hover:text-[#0099ff] transition"
       >
@@ -55,17 +57,39 @@ const formattedUpdateDate = updatedDate
         <span>All Posts</span>
       </a>
 
-      <button 
-        id="share-post-btn"
-        type="button"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-xs font-mono text-neutral-300 hover:text-white transition cursor-pointer"
-        title="Share this article"
-      >
-        <svg class="w-3.5 h-3.5 text-[#ff9900]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
-        </svg>
-        <span>Share</span>
-      </button>
+      <!-- Share Options: LinkedIn & Copy to clipboard -->
+      <div class="flex items-center gap-2">
+        <a
+          href={linkedInShareUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-linkedin-share
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#0099ff] text-xs font-mono text-neutral-300 hover:text-white transition cursor-pointer"
+          title="Share to LinkedIn"
+          aria-label="Share to LinkedIn"
+        >
+          <svg class="w-3.5 h-3.5 text-[#0099ff] fill-current" viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.85 6.4a1.61 1.61 0 1 0 1.61 1.61A1.61 1.61 0 0 0 7.85 6.4Z"/>
+          </svg>
+          <span class="sm:hidden">LinkedIn</span>
+          <span class="hidden sm:inline">Share to LinkedIn</span>
+        </a>
+
+        <button
+          type="button"
+          class="share-copy-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-xs font-mono text-neutral-300 hover:text-white transition cursor-pointer"
+          title="Copy link to clipboard"
+          aria-label="Copy link to clipboard"
+        >
+          <svg class="w-3.5 h-3.5 text-[#ff9900]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+          </svg>
+          <span class="copy-label">
+            <span class="sm:hidden">Copy link</span>
+            <span class="hidden sm:inline">Copy to clipboard</span>
+          </span>
+        </button>
+      </div>
     </div>
 
     <!-- Article Header -->
@@ -86,9 +110,9 @@ const formattedUpdateDate = updatedDate
       <div class="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs font-mono text-neutral-400">
         <div class="flex items-center gap-3">
           <div class="flex items-center gap-2">
-            <img 
-              src="/images/avatar.jpg" 
-              alt={author} 
+            <img
+              src="/images/avatar.jpg"
+              alt={author}
               class="w-6 h-6 rounded-full object-cover border border-[#0099ff]"
               onerror="this.style.display='none'"
             />
@@ -127,12 +151,52 @@ const formattedUpdateDate = updatedDate
       <slot />
     </div>
 
-    <!-- Article Footer / Bio Card -->
+    <!-- Article Footer / Share & Bio Card -->
     <div class="pt-8 border-t border-neutral-800/90 space-y-6">
+      <!-- Share this article section -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-[#202022] border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-[#ff9900]"></span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#ff9900]">Share Article</span>
+          </div>
+          <p class="text-sm font-semibold text-white">Share this article with your network</p>
+        </div>
+
+        <div class="flex items-center gap-2.5 w-full sm:w-auto">
+          <a
+            href={linkedInShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-linkedin-share
+            class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#0099ff] text-xs font-mono text-neutral-200 hover:text-white transition cursor-pointer"
+            title="Share to LinkedIn"
+            aria-label="Share to LinkedIn"
+          >
+            <svg class="w-4 h-4 text-[#0099ff] fill-current" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.85 6.4a1.61 1.61 0 1 0 1.61 1.61A1.61 1.61 0 0 0 7.85 6.4Z"/>
+            </svg>
+            <span>Share to LinkedIn</span>
+          </a>
+
+          <button
+            type="button"
+            class="share-copy-btn flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-xs font-mono text-neutral-200 hover:text-white transition cursor-pointer"
+            title="Copy link to clipboard"
+            aria-label="Copy link to clipboard"
+          >
+            <svg class="w-4 h-4 text-[#ff9900]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+            </svg>
+            <span class="copy-label">Copy to clipboard</span>
+          </button>
+        </div>
+      </div>
+
       <div class="p-6 rounded-2xl bg-[#202022] border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <img 
-          src="/images/avatar.jpg" 
-          alt="Giovanni Alvarez" 
+        <img
+          src="/images/avatar.jpg"
+          alt="Giovanni Alvarez"
           class="w-14 h-14 rounded-full object-cover border-2 border-[#0099ff] ring-2 ring-neutral-900 shrink-0"
           onerror="this.style.display='none'"
         />
@@ -153,7 +217,7 @@ const formattedUpdateDate = updatedDate
       </div>
 
       <div class="flex items-center justify-between text-xs font-mono">
-        <a 
+        <a
           href={`${base}/`}
           class="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition"
         >
@@ -163,8 +227,8 @@ const formattedUpdateDate = updatedDate
           <span>Back to articles</span>
         </a>
 
-        <a 
-          href="#" 
+        <a
+          href="#"
           class="inline-flex items-center gap-1 text-neutral-400 hover:text-[#0099ff] transition"
         >
           <span>Back to top</span>
@@ -176,30 +240,91 @@ const formattedUpdateDate = updatedDate
     </div>
   </article>
 
+  <div
+    id="share-toast"
+    class="pointer-events-none fixed bottom-5 left-1/2 z-50 -translate-x-1/2 rounded-lg border border-[#0099ff]/50 bg-neutral-900 px-4 py-2 text-sm font-mono text-white opacity-0 transition-opacity duration-200"
+    role="status"
+    aria-live="polite"
+  ></div>
+
   <!-- Sharing Script -->
   <script>
-    const shareBtn = document.getElementById('share-post-btn');
-    if (shareBtn) {
-      shareBtn.addEventListener('click', async () => {
-        const shareData = {
-          title: document.title,
-          url: window.location.href,
-        };
-        if (navigator.share) {
-          try {
-            await navigator.share(shareData);
-          } catch (e) {
-            // User cancelled or share failed
-          }
-        } else if (navigator.clipboard) {
-          await navigator.clipboard.writeText(window.location.href);
-          const originalText = shareBtn.innerHTML;
-          shareBtn.innerHTML = '<span class="text-[#0099ff] font-bold">✓ Copied!</span>';
-          setTimeout(() => {
-            shareBtn.innerHTML = originalText;
-          }, 2000);
-        }
-      });
+    const copyButtonSelector = '.share-copy-btn';
+    const linkedInShareSelector = '[data-linkedin-share]';
+
+    function showShareToast(message) {
+      const toast = document.getElementById('share-toast');
+      if (!toast) return;
+
+      toast.textContent = message;
+      toast.classList.remove('opacity-0');
+      toast.classList.add('opacity-100');
+      window.setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+      }, 2500);
     }
+
+    async function copyArticleUrl() {
+      const url = window.location.href;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(url);
+          showShareToast('Article link copied to clipboard.');
+          return;
+        } catch (error) {
+          console.warn('Clipboard API copy failed; trying fallback.', error);
+        }
+      }
+
+      let copied = false;
+
+      try {
+        const textarea = document.createElement('textarea');
+        textarea.value = url;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        copied = document.execCommand('copy');
+        textarea.remove();
+      } catch (error) {
+        console.warn('Legacy clipboard copy failed; opening manual copy prompt.', error);
+      }
+
+      if (copied) {
+        showShareToast('Article link copied to clipboard.');
+      } else {
+        window.prompt('Copy article link:', url);
+      }
+    }
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const linkedInLink = target.closest(linkedInShareSelector);
+      if (linkedInLink instanceof HTMLAnchorElement) {
+        event.preventDefault();
+        const popup = window.open(
+          linkedInLink.href,
+          'linkedin-share',
+          'popup,width=600,height=600,left=100,top=100',
+        );
+
+        if (popup) {
+          popup.opener = null;
+          popup.focus();
+        } else {
+          window.open(linkedInLink.href, '_blank', 'noopener,noreferrer');
+        }
+        return;
+      }
+
+      if (target.closest(copyButtonSelector)) {
+        void copyArticleUrl();
+      }
+    });
   </script>
 </BaseLayout>

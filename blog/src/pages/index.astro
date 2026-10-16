@@ -19,8 +19,8 @@ const tagCounts = posts.reduce<Record<string, number>>((acc, post) => {
 const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 ---
 
-<BaseLayout 
-  title="Engineering Blog" 
+<BaseLayout
+  title="Engineering Blog"
   description="Technical deep dives, systems architecture, containerization, and practical software engineering by Giovanni Alvarez (@CodeMonkeyG)."
 >
   <div class="space-y-10">
@@ -36,7 +36,7 @@ const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
           Engineering Notes &amp; Insights
         </h2>
         <p class="text-sm sm:text-base font-medium text-neutral-400 max-w-xl">
-          Deep dives into systems, architecture, code, design, artificial intellegence, and lessons learned from 15+ years in engineering leadership.
+          Deep dives into systems, architecture, code, design, artificial intelligence, and lessons learned from 15+ years in engineering leadership.
         </p>
       </div>
 

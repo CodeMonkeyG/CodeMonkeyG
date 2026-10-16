@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Giovanni Alvarez</title>
+  <meta name="description" content="The page you requested could not be found on codemonkeyg.com.">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6DBYFZ059"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B6DBYFZ059');
+  </script>
+
+  <!-- Local stylesheets -->
+  <link rel="stylesheet" href="/assets/css/tailwind.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script src="/assets/js/tailwind.js"></script>
+  <script>
+    if (window.tailwind) {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0099ff',
+              secondary: '#ff9900',
+              darkgrey: '#181818',
+            }
+          }
+        }
+      };
+    }
+  </script>
+</head>
+<body class="bg-black text-white min-h-screen py-12 sm:py-20 px-4 sm:px-6 selection:bg-[#ff9900] selection:text-black antialiased">
+  <main class="w-full max-w-2xl mx-auto bg-[#181818] border border-neutral-800/90 rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl space-y-10 text-center">
+    
+    <!-- Brand / Eyebrow -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-700 text-xs sm:text-sm font-mono text-[#0099ff]">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#ff9900] animate-pulse"></span>
+        codemonkeyg.com
+      </div>
+      <div class="text-6xl sm:text-7xl font-extrabold font-mono tracking-tight text-[#ff9900]">
+        404
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+        Page Not Found
+      </h1>
+      <p class="text-neutral-400 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+        The route you requested does not exist or has been moved. Explore the verified pages below:
+      </p>
+    </div>
+
+    <!-- Quick Navigation Links -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-left">
+      <a 
+        href="/" 
+        class="flex items-center gap-3.5 p-4 rounded-2xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#0099ff] text-white transition group"
+      >
+        <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0099ff]/10 text-[#0099ff] group-hover:bg-[#0099ff] group-hover:text-black transition font-mono font-bold text-sm">
+          /
+        </span>
+        <div>
+          <div class="font-bold text-sm sm:text-base text-white">Homepage</div>
+          <div class="text-xs text-neutral-400 font-mono">Overview &amp; Snapshot</div>
+        </div>
+      </a>
+
+      <a 
+        href="/resume" 
+        class="flex items-center gap-3.5 p-4 rounded-2xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#0099ff] text-white transition group"
+      >
+        <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0099ff]/10 text-[#0099ff] group-hover:bg-[#0099ff] group-hover:text-black transition font-mono font-bold text-sm">
+          CV
+        </span>
+        <div>
+          <div class="font-bold text-sm sm:text-base text-white">FDE Résumé</div>
+          <div class="text-xs text-neutral-400 font-mono">Full Work History</div>
+        </div>
+      </a>
+
+      <a 
+        href="https://github.com/CodeMonkeyG" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="flex items-center gap-3.5 p-4 rounded-2xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-white transition group"
+      >
+        <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#ff9900]/10 text-[#ff9900] group-hover:bg-[#ff9900] group-hover:text-black transition font-mono font-bold text-sm">
+          GIT
+        </span>
+        <div>
+          <div class="font-bold text-sm sm:text-base text-white">GitHub</div>
+          <div class="text-xs text-neutral-400 font-mono">github.com/CodeMonkeyG</div>
+        </div>
+      </a>
+
+      <a 
+        href="/blog" 
+        class="flex items-center gap-3.5 p-4 rounded-2xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-white transition group"
+      >
+        <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#ff9900]/10 text-[#ff9900] group-hover:bg-[#ff9900] group-hover:text-black transition font-mono font-bold text-sm">
+          LOG
+        </span>
+        <div>
+          <div class="font-bold text-sm sm:text-base text-white">Engineering Blog</div>
+          <div class="text-xs text-neutral-400 font-mono">Articles &amp; Notes</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Contact Fallback -->
+    <div class="pt-4 border-t border-neutral-800/80 text-xs sm:text-sm text-neutral-400 space-y-2">
+      <p>Need to reach Giovanni directly?</p>
+      <div class="flex items-center justify-center gap-4 font-mono text-xs">
+        <a href="mailto:codemonkeyg@gmail.com" class="text-[#0099ff] hover:underline">codemonkeyg@gmail.com</a>
+        <span>&middot;</span>
+        <a href="https://www.linkedin.com/in/codemonkeyg/" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-white">LinkedIn</a>
+        <span>&middot;</span>
+        <a href="https://github.com/CodeMonkeyG" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-white">GitHub</a>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

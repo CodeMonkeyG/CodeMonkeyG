@@ -53,15 +53,14 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         <TagBadge tag={tag} />
       ))}
     </div>
-
-    <a 
-      href={`${base}/posts/${slug}`}
-      class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#0099ff] group-hover:text-[#ff9900] group-hover:translate-x-0.5 transition-all"
-    >
-      <span>Read post</span>
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-      </svg>
-    </a>
   </div>
+  <a
+    href={`${base}/posts/${slug}`}
+    class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#0099ff] group-hover:text-[#ff9900] group-hover:translate-x-0.5 transition-all"
+  >
+    <span>Read post</span>
+    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+    </svg>
+  </a>
 </article>

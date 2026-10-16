@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giovanni Alvarez — Forward Deployed Engineer Résumé</title>
+  <meta name="description" content="Résumé of Giovanni Alvarez, a Forward Deployed Engineer and senior full-stack engineer specializing in enterprise integrations, customer-facing delivery, identity, APIs, cloud systems, and production operations.">
+  <meta name="author" content="Giovanni Alvarez">
+  <link rel="canonical" href="https://codemonkeyg.com/resume">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codemonkeyg.com/resume">
+  <meta property="og:title" content="Giovanni Alvarez — Forward Deployed Engineer Résumé">
+  <meta property="og:description" content="Customer-facing senior engineer specializing in enterprise integrations, customer-facing delivery, identity, APIs, cloud systems, and production operations.">
+  <meta property="og:image" content="/images/avatar.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://codemonkeyg.com/resume">
+  <meta name="twitter:title" content="Giovanni Alvarez — Forward Deployed Engineer Résumé">
+  <meta name="twitter:description" content="Customer-facing senior engineer specializing in enterprise integrations, customer-facing delivery, identity, APIs, cloud systems, and production operations.">
+  <meta name="twitter:image" content="/images/avatar.jpg">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6DBYFZ059"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B6DBYFZ059');
+  </script>
+
+  <!-- Local stylesheets -->
+  <link rel="stylesheet" href="/assets/css/tailwind.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Print Stylesheet for Clean, Professional ATS Paper/PDF Printing */
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      main {
+        max-width: 100% !important;
+        background-color: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        color: #111827 !important;
+      }
+      a {
+        color: #111827 !important;
+        text-decoration: none !important;
+      }
+      .text-white {
+        color: #111827 !important;
+      }
+      .text-neutral-200, .text-neutral-300, .text-neutral-400 {
+        color: #374151 !important;
+      }
+      .bg-neutral-900, .bg-neutral-900\/90, .bg-\[\#202022\], .bg-\[\#181818\] {
+        background-color: transparent !important;
+        border-color: #e5e7eb !important;
+      }
+      .border-neutral-800, .border-neutral-800\/90, .border-neutral-800\/60 {
+        border-color: #e5e7eb !important;
+      }
+      .text-\[\#0099ff\], .text-\[\#ff9900\] {
+        color: #111827 !important;
+        font-weight: 700 !important;
+      }
+      .border-\[\#0099ff\]\/40, .border-\[\#ff9900\]\/40 {
+        border-color: #9ca3af !important;
+      }
+      article, section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+
+  <script src="/assets/js/tailwind.js"></script>
+  <script>
+    if (window.tailwind) {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0099ff',
+              secondary: '#ff9900',
+              darkgrey: '#181818',
+            }
+          }
+        }
+      };
+    }
+  </script>
+</head>
+<body class="bg-black text-white min-h-screen py-10 sm:py-20 px-4 sm:px-6 selection:bg-[#ff9900] selection:text-black antialiased">
+
+  <!-- Skip Navigation Link -->
+  <a href="#resume-content" class="no-print sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-[#0099ff] text-black font-mono font-bold rounded-lg shadow-lg">
+    Skip to content
+  </a>
+
+  <!-- Single Column Center Container -->
+  <main id="resume-content" class="w-full max-w-3xl mx-auto bg-[#181818] border border-neutral-800/90 rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl space-y-10 sm:space-y-12">
+
+    <!-- Top Navigation Header (Hidden on Print) -->
+    <header class="no-print space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-neutral-800/80">
+        <!-- Brand Pill -->
+        <a 
+          href="/" 
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-[#0099ff] text-xs sm:text-sm font-mono text-[#0099ff] transition focus:outline-none focus:ring-2 focus:ring-[#0099ff]"
+        >
+          <span class="w-2.5 h-2.5 rounded-full bg-[#0099ff] animate-pulse"></span>
+          <span>codemonkeyg.com <span class="text-neutral-500">/</span> <span class="text-white font-bold">resume</span></span>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav class="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs sm:text-sm font-mono" aria-label="Main Navigation">
+          <a 
+            href="/" 
+            class="px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-neutral-300 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#0099ff]"
+          >
+            Home
+          </a>
+          <a 
+            href="/resume" 
+            aria-current="page"
+            class="px-3 py-1.5 rounded-xl bg-neutral-900/80 border border-[#0099ff] text-[#0099ff] font-semibold transition"
+          >
+            Résumé
+          </a>
+          <a 
+            href="https://github.com/CodeMonkeyG" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-neutral-300 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#ff9900]"
+          >
+            GitHub
+          </a>
+          <a 
+            href="/blog" 
+            class="px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-[#ff9900] text-neutral-300 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#ff9900]"
+          >
+            Blog
+          </a>
+          <a 
+            href="mailto:codemonkeyg@gmail.com" 
+            class="px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-neutral-300 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#0099ff]"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
+
+      <!-- Action Controls Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/40 text-xs font-mono text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Open to FDE Opportunities &middot; SF Bay Area / Remote</span>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button 
+            type="button" 
+            onclick="window.print()" 
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-xs font-mono text-neutral-300 hover:text-white transition cursor-pointer"
+            title="Print Résumé"
+          >
+            <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+            </svg>
+            <span>Print</span>
+          </button>
+
+          <a 
+            href="/resume/Giovanni-Alvarez-SSE-Resume.pdf"
+            download="Giovanni-Alvarez-SSE-Resume.pdf"
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-[#0099ff] hover:bg-[#0088ee] text-black font-semibold text-xs font-mono transition shadow-sm"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            <span>Download PDF</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Résumé Semantic Header -->
+    <section class="space-y-3 pt-2 text-center sm:text-left border-b border-neutral-800/80 pb-6" aria-label="Candidate Header">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        Giovanni Alvarez
+      </h1>
+      <p class="text-base sm:text-lg font-semibold text-[#0099ff] tracking-tight">
+        Forward Deployed Engineer &middot; Enterprise Integrations &middot; Customer-Facing Delivery
+      </p>
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-xs sm:text-sm font-mono text-neutral-400 pt-1">
+        <span>San Francisco Bay Area (Rodeo, CA)</span>
+        <span>&middot;</span>
+        <a href="tel:+14159374062" class="hover:text-white transition">+1 415 937 4062</a>
+        <span>&middot;</span>
+        <a href="mailto:codemonkeyg@gmail.com" class="hover:text-white transition">codemonkeyg@gmail.com</a>
+        <span>&middot;</span>
+        <a href="https://codemonkeyg.com" class="hover:text-white transition">codemonkeyg.com</a>
+        <span>&middot;</span>
+        <a href="https://www.linkedin.com/in/codemonkeyg/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">linkedin.com/in/codemonkeyg</a>
+        <span>&middot;</span>
+        <a href="https://github.com/CodeMonkeyG" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">github.com/CodeMonkeyG</a>
+      </div>
+      <div class="pt-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-700/80 text-xs font-mono text-neutral-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span><strong class="text-white font-semibold">Work authorization:</strong> Authorized to work in the United States for any employer</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="space-y-4" aria-label="Professional Summary">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#ff9900]"></span>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-[#ff9900]">Professional Summary</h2>
+      </div>
+
+      <p class="text-neutral-200 text-sm sm:text-base leading-relaxed font-normal">
+        Customer-facing senior engineer and technical architect with 15+ years translating ambiguous enterprise and operational requirements into deployed production systems. Experienced across technical discovery, proofs of concept, executive demonstrations, solution architecture, enterprise integrations, implementation, and production ownership. Built an enterprise hospitality platform adopted as a brand standard by global hotel brands; consolidated 35+ legacy systems; and operated high-concurrency AWS infrastructure serving millions of daily API and IoT requests. Brings the communication range to work directly with customer executives and client architects while remaining hands-on in application code, data, integrations, and cloud operations.
+      </p>
+    </section>
+
+    <!-- Selected Impact -->
+    <section class="space-y-4 pt-2 border-t border-neutral-800/80" aria-label="Selected Impact">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#0099ff]"></span>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-[#0099ff]">Selected Impact</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+        <div class="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800 space-y-1">
+          <strong class="text-white font-semibold text-xs font-mono uppercase text-[#0099ff] block">35+ Tools Consolidated</strong>
+          <span class="text-neutral-300 text-xs sm:text-sm">Built enterprise SaaS replacing 35+ fragmented point solutions into a single unified operating environment.</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800 space-y-1">
+          <strong class="text-white font-semibold text-xs font-mono uppercase text-[#0099ff] block">High-Volume API Delivery</strong>
+          <span class="text-neutral-300 text-xs sm:text-sm">Architected and operated integration pipelines and APIs serving millions of daily requests under sub-500ms latency.</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800 space-y-1">
+          <strong class="text-white font-semibold text-xs font-mono uppercase text-[#ff9900] block">Hours &rarr; Minutes Automation</strong>
+          <span class="text-neutral-300 text-xs sm:text-sm">Built automated room-assignment engine cutting hotel housekeeping scheduling administrative time from hours to minutes.</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800 space-y-1">
+          <strong class="text-white font-semibold text-xs font-mono uppercase text-[#ff9900] block">Executive Technical Delivery</strong>
+          <span class="text-neutral-300 text-xs sm:text-sm">Partnered directly with executives, client architects, and sales through discovery, live demos, rollout, and Tier-3 support.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forward Deployed Engineering Strengths -->
+    <section class="space-y-4 pt-2 border-t border-neutral-800/80" aria-label="Forward Deployed Engineering Strengths">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#0099ff]"></span>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-[#0099ff]">Forward Deployed Engineering Strengths</h2>
+      </div>
+
+      <ul class="space-y-2 pl-5 border-l-2 border-[#0099ff]/40 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+        <li class="flex items-start gap-2">
+          <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+          <span>Customer discovery, workflow analysis, solution design, and technical scoping</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+          <span>Rapid proofs of concept, white-labeled demonstrations, and sales-cycle support</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+          <span>Enterprise API, data, identity, vendor, and legacy-system integrations</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+          <span>Executive communication and coordination across customers, sales, product, and engineering</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+          <span>Production deployment, performance optimization, incident response, and operational ownership</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+          <span>OAuth 2.0, OIDC, SAML, SSO, CIAM, REST APIs, OpenAPI, AWS, Docker, PostgreSQL, Redis</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Professional Experience (Full Career History) -->
+    <section class="space-y-10 pt-2 border-t border-neutral-800/80" aria-label="Professional Experience">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="h-2 w-7 rounded-full bg-[#0099ff]"></span>
+          <h2 class="text-sm font-mono uppercase tracking-widest text-[#0099ff]">Professional Experience</h2>
+        </div>
+        <span class="text-xs sm:text-sm font-mono text-neutral-400">Complete Work History</span>
+      </div>
+
+      <div class="space-y-10 sm:space-y-12">
+        <!-- 1. KYC Hospitality -->
+        <article class="space-y-3.5">
+          <div class="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Founding Engineer &amp; Technical Lead</h3>
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">April 2016 &ndash; July 2026 &middot; 10 yrs 4 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">KYC Hospitality</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area &middot; Remote (Full-Time)</div>
+          </div>
+          <ul class="space-y-2 pl-5 border-l-2 border-[#0099ff]/40 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Served as sole founding engineer and primary technical partner to the CEO, owning customer discovery, solution architecture, demonstrations, implementation, and production delivery for an enterprise hospitality SaaS platform.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Helped establish the platform as a brand standard for Hilton, Starwood, and Taj by acting as the technical authority in executive sales cycles, translating operational needs into credible demonstrations and deployment plans.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Led discovery sessions and rapidly built proofs of concept for automated room assignment, task dispatching, guest messaging, and white-labeled guest applications; successful concepts became reusable product modules.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Architected and delivered a unified platform that replaced 35+ fragmented point solutions, reducing integration complexity, software sprawl, operational overhead, and cross-system failure points.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Built real-time, bidirectional integration pipelines for Oracle Opera FIAS/OXI, Infor HMS/HTNG, and FOSSE/VBScript, bridging modern SaaS workflows with legacy property-management environments.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Re-engineered third-party vendor configuration and testing workflows, reducing onboarding from a 24-hour integration cycle to an automated, immediate process.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Operated and optimized AWS, PostgreSQL, REST APIs, queues, and IoT integrations supporting millions of daily requests while maintaining a sub-500 ms latency SLA.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Engineered a Global Guest Dossier that reconciled cross-property identifier collisions and enabled synchronized guest profiles across otherwise isolated customer databases.</span>
+            </li>
+          </ul>
+          <div class="pt-1">
+            <p class="text-xs font-mono text-neutral-400 mb-1.5 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Laravel</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Vue</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Docker</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">AWS</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PostgreSQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CodeIgniter</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">OpenAPI / Postman</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Oracle Opera FIAS/OXI</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Infor HMS (HTNG)</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">FOSSE</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Lutron IoT</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Redis</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. SAP, Gigya Business Unit -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Tier 2 Client Services Engineer, Post-Acquisition Integration</h3>
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#ff9900]">April 2017 &ndash; June 2018 &middot; 1 yr 3 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-sm font-semibold text-[#0099ff] uppercase tracking-wider">SAP, Gigya Business Unit</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area &middot; Remote</div>
+          </div>
+          <ul class="space-y-2 pl-5 border-l-2 border-[#ff9900]/40 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Provided customer-facing support engineering and integration consulting for high-value enterprise accounts following SAP’s acquisition of Gigya.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Functioned across Solutions Engineering, implementation consulting, and technical escalation, advising customers on custom CIAM integrations, data architecture, and security practices.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Entered unfamiliar customer codebases across varied technology stacks to identify integration defects, isolate root causes, and restore critical identity workflows.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Built and maintained Android, iOS, JavaScript, and PHP demonstration applications used by global sales teams and client architects to validate identity-orchestration scenarios.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Facilitated post-acquisition knowledge transfer between Gigya specialists and SAP stakeholders while standardizing internal support resources and client-facing API documentation.</span>
+            </li>
+          </ul>
+          <div class="pt-1">
+            <p class="text-xs font-mono text-neutral-400 mb-1.5 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML / XML / CSS</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">NoSQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Git</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Android Studio</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Xcode (Objective C)</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">WordPress</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Drupal</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Salesforce</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Gigya -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Professional Services Engineer</h3>
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">July 2014 &ndash; April 2017 &middot; 2 yrs 10 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">Gigya</div>
+            <div class="text-xs font-mono text-neutral-400">Mountain View, CA</div>
+          </div>
+          <ul class="space-y-2 pl-5 border-l-2 border-[#0099ff]/40 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Consulted Fortune 500 companies and global media organizations on customer identity architecture, authentication standards, data strategy, and implementation planning.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Managed technical relationships and architecture strategy for accounts including Formula 1, BBC, Forbes, The Guardian, KLM, Turner, and Scripps Networks.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Led discovery and architecture sessions with customer engineering leaders covering OAuth 2.0, OIDC, SAML, SSO, privacy requirements, and customer-profile data design.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Served as the technical liaison among client engineering teams, account management, product management, and internal engineering to resolve tradeoffs and keep deployments moving.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Developed reference applications, SDK extensions, and reusable integration patterns across Objective-C/iOS, Android, JavaScript, and PHP to accelerate enterprise onboarding.</span>
+            </li>
+          </ul>
+          <div class="pt-1">
+            <p class="text-xs font-mono text-neutral-400 mb-1.5 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">HTML / XML / CSS</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">NoSQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Git</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Android Studio</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Xcode (Objective C)</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">WordPress</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Drupal</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Salesforce</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. AVRS -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Senior Software Engineer</h3>
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#ff9900]">February 2013 &ndash; July 2014 &middot; 1 yr 6 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-sm font-semibold text-[#0099ff] uppercase tracking-wider">AVRS, Inc. (Acquired by CVR)</div>
+            <div class="text-xs font-mono text-neutral-400">Petaluma, CA</div>
+          </div>
+          <ul class="space-y-2 pl-5 border-l-2 border-[#ff9900]/40 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Architected and ported frontend and backend modules during the modernization of a California DMV registration-services platform into a single-page application.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Coordinated engineering, operations, and marketing stakeholders to clarify requirements, remove delivery blockers, and support feature adoption.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Introduced CasperJS automated testing, code-review standards, and Git/SVN workflows to reduce regression risk during rapid releases.</span>
+            </li>
+          </ul>
+          <div class="pt-1">
+            <p class="text-xs font-mono text-neutral-400 mb-1.5 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Node.js</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">BackboneJS</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Redis</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CasperJS</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Git / SVN</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. StopTheHacker Inc. -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Senior Software Engineer</h3>
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0099ff]">January 2012 &ndash; February 2013 &middot; 1 yr 2 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-sm font-semibold text-[#ff9900] uppercase tracking-wider">StopTheHacker Inc. (Acquired by Cloudflare)</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area</div>
+          </div>
+          <ul class="space-y-2 pl-5 border-l-2 border-[#0099ff]/40 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Redesigned and developed the primary customer dashboard, improving onboarding and making security and subscription workflows easier to operate.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Built the core internationalization layer and launched German localization to support global expansion.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0099ff] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Integrated SendGrid account alerts and built website-availability and load-performance monitoring tools for customer-facing operations.</span>
+            </li>
+          </ul>
+          <div class="pt-1">
+            <p class="text-xs font-mono text-neutral-400 mb-1.5 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">SendGrid</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Zend Framework</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Bluesnap</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">REST APIs</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Dynamic Duo Designs / CodeMonkeyG -->
+        <article class="space-y-3.5 pt-8 sm:pt-10 border-t border-neutral-800/60">
+          <div class="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1">
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Co-Founder, Lead Developer &amp; Technical Consultant</h3>
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#ff9900]">September 2007 &ndash; December 2011 &middot; 4 yrs 4 mos</span>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-sm font-semibold text-[#0099ff] uppercase tracking-wider">Dynamic Duo Designs / CodeMonkeyG</div>
+            <div class="text-xs font-mono text-neutral-400">San Francisco Bay Area &middot; Contract</div>
+          </div>
+          <ul class="space-y-2 pl-5 border-l-2 border-[#ff9900]/40 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Co-founded a development consultancy that delivered custom applications, commerce systems, and digital strategy for more than 100 clients worldwide.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#ff9900] mt-1 shrink-0 text-xs select-none" aria-hidden="true">&#9679;</span>
+              <span>Led customer discovery, architecture, development, delivery, and support for tailored PHP, CodeIgniter, MySQL, JavaScript, and REST API solutions.</span>
+            </li>
+          </ul>
+          <div class="pt-1">
+            <p class="text-xs font-mono text-neutral-400 mb-1.5 uppercase tracking-wider">Tools &amp; Tech Used:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">PHP</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">MySQL</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">CodeIgniter</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">WordPress</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">RESTful APIs</span>
+              <span class="px-2 py-0.5 rounded text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-300">Git</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Technical Skills Grouping -->
+    <section class="space-y-4 pt-4 border-t border-neutral-800/90" aria-label="Technical Skills">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#0099ff]"></span>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-[#0099ff]">Technical Skills</h2>
+      </div>
+
+      <div class="space-y-3 pl-5 border-l-2 border-[#0099ff]/40 text-xs sm:text-sm leading-relaxed">
+        <div>
+          <strong class="text-white font-semibold">Customer delivery:</strong>
+          <span class="text-neutral-300"> Discovery, technical demonstrations, solution architecture, implementation, stakeholder communication, documentation</span>
+        </div>
+        <div>
+          <strong class="text-white font-semibold">Integrations and identity:</strong>
+          <span class="text-neutral-300"> REST APIs, OpenAPI, OAuth, OIDC, SAML, SSO, webhooks, Oracle Opera FIAS/OXI, Infor HTNG, FOSSE, IoT integrations</span>
+        </div>
+        <div>
+          <strong class="text-white font-semibold">Application engineering:</strong>
+          <span class="text-neutral-300"> TypeScript/JavaScript, PHP, Laravel, Vue, Node.js, SQL, PostgreSQL, Redis, CodeIgniter</span>
+        </div>
+        <div>
+          <strong class="text-white font-semibold">Cloud and operations:</strong>
+          <span class="text-neutral-300"> AWS, Docker, queues, background jobs, incident response, disaster recovery, API performance optimization</span>
+        </div>
+        <div>
+          <strong class="text-white font-semibold">Additional platforms:</strong>
+          <span class="text-neutral-300"> Android, iOS/Objective-C, SendGrid, Salesforce, WordPress, Drupal</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="space-y-4 pt-4 border-t border-neutral-800/90" aria-label="Education">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-7 rounded-full bg-[#ff9900]"></span>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-[#ff9900]">Education</h2>
+      </div>
+
+      <div class="pl-5 border-l-2 border-[#ff9900]/40 text-xs sm:text-sm leading-relaxed text-neutral-300">
+        <p>
+          <strong class="text-white font-semibold">Miami Dade College</strong> &mdash; College coursework
+        </p>
+      </div>
+    </section>
+
+    <!-- Download PDF Footer Box (no-print) -->
+    <section class="no-print pt-6 border-t border-neutral-800/90 text-center space-y-4">
+      <div class="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-left space-y-1">
+          <h3 class="text-base font-bold text-white">Need a copy for your Applicant Tracking System?</h3>
+          <p class="text-xs text-neutral-400">Download the ATS-optimized, selectable-text PDF formatted for hiring managers.</p>
+        </div>
+        <a 
+          href="/resume/Giovanni-Alvarez-SSE-Resume.pdf"
+          download="Giovanni-Alvarez-SSE-Resume.pdf"
+          class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0099ff] hover:bg-[#0088ee] text-black font-semibold text-xs font-mono transition"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          </svg>
+          <span>Download FDE Résumé (PDF)</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer (no-print) -->
+    <footer class="no-print pt-8 border-t border-neutral-800/80 text-center space-y-2.5 text-sm text-neutral-400">
+      <div class="flex items-center justify-center gap-4 text-neutral-300 font-mono text-xs sm:text-sm">
+        <a href="/" class="hover:text-[#0099ff] transition">Home</a>
+        <span>&middot;</span>
+        <a href="/resume" class="text-[#0099ff]">Résumé</a>
+        <span>&middot;</span>
+        <a href="/blog" class="hover:text-[#0099ff] transition">Blog</a>
+        <span>&middot;</span>
+        <a href="https://www.linkedin.com/in/codemonkeyg/" target="_blank" rel="noopener noreferrer" class="hover:text-[#0099ff] transition">LinkedIn</a>
+        <span>&middot;</span>
+        <a href="https://github.com/CodeMonkeyG" target="_blank" rel="noopener noreferrer" class="hover:text-[#ff9900] transition">GitHub</a>
+        <span>&middot;</span>
+        <a href="mailto:codemonkeyg@gmail.com" class="hover:text-white transition">Email</a>
+      </div>
+      <p>&copy; Giovanni Alvarez &middot; CodeMonkeyG</p>
+    </footer>
+
+  </main>
+</body>
+</html>
