@@ -1,6 +1,6 @@
 ---
 title: "Building an AI-Assisted Carousel Pipeline Without Canva or Adobe"
-description: "A case study in turning marketing ideas into editable SVGs and Instagram images with Hermes Agent, Python, and Inkscape, without a proprietary design service."
+description: "A case study in turning marketing ideas into editable SVGs and Instagram images with an AI coding agent, Python, and Inkscape, without a proprietary design service."
 pubDate: 2026-10-17
 author: "Giovanni Alvarez"
 tags: ["AI", "Agentic Systems", "Python", "Open Source", "Case Study", "Architecture", "Engineering"]
@@ -9,9 +9,9 @@ draft: false
 
 ## Executive summary
 
-I wanted a repeatable way to create Instagram marketing carousels for Hercules Tech Solutions. I had campaign ideas, SVG templates, and JPG backgrounds. I wanted to keep control of those assets, improve the writing through review, and produce images without depending on Adobe, Canva, or a hosted design editor.
+I wanted a repeatable way to create Instagram marketing carousels for a client. I had campaign ideas, SVG templates, and JPG backgrounds. I wanted to keep control of those assets, improve the writing through review, and produce images without depending on Adobe, Canva, or a hosted design editor.
 
-Working with Hermes Agent, we built a file-based pipeline: source notes became reviewable Markdown, Markdown became JSONL, and Python placed the approved text into SVG templates. Inkscape rendered the SVGs into PNGs. The finished batch contained 14 campaigns and 69 slides, with an editable SVG and a flattened PNG for each slide.
+Working with an AI coding agent, we built a file-based pipeline: source notes became reviewable Markdown, Markdown became JSONL, and Python placed the approved text into SVG templates. Inkscape rendered the SVGs into PNGs. The finished batch contained 14 campaigns and 69 slides, with an editable SVG and a flattened PNG for each slide.
 
 Getting there required more than connecting a model to a renderer. Early versions pulled from the wrong source directory, treated production labels as copy, shortened sentences badly, and produced slides that passed layout checks but did not read well together. A later template revision exposed another mistake: the renderer treated example bullet lines as a hard capacity limit.
 
@@ -108,7 +108,7 @@ It also makes changes traceable. If a sentence needs work, I can read and edit t
 
 ## 3. The early failures were useful specifications
 
-The initial source selection was wrong. The agent read a broader Instagram folder instead of the direct campaign notes for Hercules Tech Solutions. That produced work outside the intended scope. Correcting the directory narrowed the set to 14 campaigns.
+The initial source selection was wrong. The agent read a broader Instagram folder instead of the direct campaign notes. That produced work outside the intended scope. Correcting the directory narrowed the set to 14 campaigns.
 
 Other failures happened inside the content. Source notes mixed headings, design instructions, and actual audience copy. Labels such as "The Pitfalls" and "How to do it" sometimes became bullets. Long text was shortened into incomplete or awkward phrases.
 
@@ -228,7 +228,7 @@ We used several checks because each catches different failures:
 
 The completed campaign set contained 69 slides across 14 campaigns, producing 69 SVGs and 69 PNGs. We later deleted and regenerated the slide outputs from the retained inputs. For that final bulk rerender, I explicitly requested that visual inspection be skipped. The successful render and file counts established regeneration, not a fresh visual approval of every image.
 
-We also distilled the procedure into a standalone Hermes skill. It describes asset inspection, campaign writing, the Markdown-to-JSONL boundary, mechanical rendering, verification, and source-level revision. It avoids assuming this machine's paths or a particular business's contact details so another agent can use it with a new set of assets and a different idea.
+We also distilled the procedure into a standalone workflow skill. It describes asset inspection, campaign writing, the Markdown-to-JSONL boundary, mechanical rendering, verification, and source-level revision. It avoids assuming this machine's paths or a particular business's contact details so another agent can use it with a new set of assets and a different idea.
 
 There are no measured conversion results in this case study. The carousels were written to generate leads, but producing them does not prove they generated engagement or customers. We also did not run a controlled cost or time comparison against a design subscription.
 
