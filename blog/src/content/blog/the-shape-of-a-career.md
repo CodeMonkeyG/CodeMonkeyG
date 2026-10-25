@@ -3,7 +3,7 @@ title: "The Shape of a Career"
 description: "A reflection on nonlinear work, useful detours, and choosing what to carry into the next chapter."
 pubDate: 2026-09-26
 author: "Giovanni Alvarez"
-tags: ["Career", "Architecture", "Engineering"]
+tags: ["Career", "Architecture", "Engineering", "Forward Deployed Engineering", "Integrations", "Reflection"]
 draft: false
 ---
 

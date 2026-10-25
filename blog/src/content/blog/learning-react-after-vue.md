@@ -3,7 +3,7 @@ title: "Learning React After Vue"
 description: "Why React remains the industry standard, what Vue makes easier at the start, and where React Native fits next."
 pubDate: 2026-10-08
 author: "Giovanni Alvarez"
-tags: ["React", "Vue", "WebDev", "Architecture"]
+tags: ["React", "Vue", "WebDev", "Architecture", "Engineering"]
 draft: false
 ---
 

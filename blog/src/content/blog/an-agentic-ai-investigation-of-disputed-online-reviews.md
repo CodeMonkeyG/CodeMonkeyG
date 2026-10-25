@@ -3,7 +3,7 @@ title: "An Agentic AI Investigation of Disputed Online Reviews"
 description: "A real-world case study in tool orchestration, evidence management, computational analysis, and human oversight."
 pubDate: 2026-10-15
 author: "Giovanni Alvarez"
-tags: ["AI", "Agentic Systems", "Architecture", "Python", "Case Study"]
+tags: ["AI", "Agentic Systems", "Architecture", "Python", "Case Study", "Engineering", "Integrations"]
 draft: false
 ---
 

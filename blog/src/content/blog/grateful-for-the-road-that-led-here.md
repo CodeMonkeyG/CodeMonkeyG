@@ -3,7 +3,7 @@ title: "Grateful for the Road That Led Here"
 description: "A thank-you and personal reflection after being invited to talk about integrations, product work, and the experience that brought me to forward deployed engineering."
 pubDate: 2026-10-25
 author: "Giovanni Alvarez"
-tags: ["Career", "Forward Deployed Engineering", "Integrations", "Reflection"]
+tags: ["Career", "Forward Deployed Engineering", "Integrations", "Reflection", "Engineering", "Architecture", "AI"]
 draft: false
 ---
 

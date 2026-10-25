@@ -3,7 +3,7 @@ title: "Learning Python After PHP"
 description: "What a PHP developer notices when Python becomes a tool for APIs, automation, and workflow pipelines."
 pubDate: 2026-10-10
 author: "Giovanni Alvarez"
-tags: ["Python", "FastAPI", "Architecture", "DevOps"]
+tags: ["Python", "FastAPI", "Architecture", "DevOps", "Engineering", "Integrations"]
 draft: false
 ---
 

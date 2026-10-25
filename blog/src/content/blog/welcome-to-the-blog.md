@@ -6,7 +6,7 @@ description: "Welcome to my engineering notebook. Here is why I built this markd
 draft: false
 pubDate: 2026-09-18
 published: true
-tags: ["Astro", "WebDev", "Docker"]
+tags: ["Astro", "WebDev", "Docker", "Architecture", "Engineering"]
 title: "Launching the CodeMonkeyG Tech Blog"
 ---
 

@@ -3,7 +3,7 @@ title: "Building an AI-Assisted Carousel Pipeline Without Canva or Adobe"
 description: "A case study in turning marketing ideas into editable SVGs and Instagram images with Hermes Agent, Python, and Inkscape, without a proprietary design service."
 pubDate: 2026-10-17
 author: "Giovanni Alvarez"
-tags: ["AI", "Agentic Systems", "Python", "Open Source", "Case Study"]
+tags: ["AI", "Agentic Systems", "Python", "Open Source", "Case Study", "Architecture", "Engineering"]
 draft: false
 ---
 

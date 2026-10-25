@@ -3,7 +3,7 @@ title: "Why I Still Start With Monoliths"
 description: "Why the monolith remains the fastest, most secure, and most pragmatic starting point for new software projects."
 pubDate: 2026-09-22
 author: "Giovanni Alvarez"
-tags: ["Architecture", "Monolith", "Laravel", "DevOps"]
+tags: ["Architecture", "Monolith", "Laravel", "DevOps", "Engineering"]
 draft: false
 ---
 
