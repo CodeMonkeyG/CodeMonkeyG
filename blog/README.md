@@ -40,7 +40,13 @@ Your markdown content goes here!
 Code blocks, images, blockquotes, and lists work out of the box.
 ```
 
-The new post will immediately appear on `/blog`, `/blog/tags`, and in `/blog/rss.xml`.
+### Publishing workflow
+
+1. Create the Markdown file in `blog/src/content/blog/` using a unique, URL-friendly filename.
+2. Complete the required frontmatter fields and set `draft: false` when the article is ready to publish.
+3. Commit and push the Markdown file through the normal repository workflow.
+
+Creating or editing the Markdown file is the only blog-content change required for publication. **Do not rebuild the Docker image or run `docker compose up --build` for a new or updated post.** Published posts appear on `/blog`, `/blog/tags`, and in `/blog/rss.xml`.
 
 ---
 
