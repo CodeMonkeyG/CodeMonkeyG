@@ -1,7 +1,7 @@
 ---
 title: "Finding the Opportunity After the AI Workshop"
 description: "What an introductory AI session helped me see about practical implementation, local service, and the work I want to build next."
-pubDate: 2026-10-25
+pubDate: 2026-10-24
 author: "Giovanni Alvarez"
 tags: ["AI", "Career", "Entrepreneurship", "Integrations", "Engineering", "Case Study"]
 draft: false
