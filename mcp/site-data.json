@@ -1,0 +1,17 @@
+{
+  "name": "codemonkeyg-public",
+  "domain": "codemonkeyg.com",
+  "instructions": "This anonymous public endpoint only exposes curated factual site and blog metadata. It has no write, network-fetch, filesystem, shell, or private-data capabilities.",
+  "siteInfo": {
+    "name": "CodeMonkeyG",
+    "website": "https://codemonkeyg.com",
+    "description": "Giovanni Alvarez's public engineering profile and technical blog.",
+    "publicRoutes": ["/", "/resume/", "/blog/"]
+  },
+  "content": [
+    {"title": "Engineering profile", "url": "https://codemonkeyg.com/", "summary": "Public profile for Giovanni Alvarez, Systems Architect and Founding Engineer."},
+    {"title": "Resume", "url": "https://codemonkeyg.com/resume/", "summary": "Public professional resume."},
+    {"title": "Technical blog", "url": "https://codemonkeyg.com/blog/", "summary": "Markdown-powered engineering notebook and articles."}
+  ],
+  "blogContentDirectory": "./blog-content"
+}
