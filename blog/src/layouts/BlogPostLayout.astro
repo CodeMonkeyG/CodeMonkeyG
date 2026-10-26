@@ -271,6 +271,7 @@ const formattedUpdateDate = updatedDate
       if (navigator.clipboard && window.isSecureContext) {
         try {
           await navigator.clipboard.writeText(url);
+          window.CodeMonkeyAnalytics?.track('article_share', { share_method: 'copy_link' });
           showShareToast('Article link copied to clipboard.');
           return;
         } catch (error) {
@@ -294,6 +295,7 @@ const formattedUpdateDate = updatedDate
       }
 
       if (copied) {
+        window.CodeMonkeyAnalytics?.track('article_share', { share_method: 'copy_link' });
         showShareToast('Article link copied to clipboard.');
       } else {
         window.prompt('Copy article link:', url);
@@ -306,6 +308,7 @@ const formattedUpdateDate = updatedDate
 
       const linkedInLink = target.closest(linkedInShareSelector);
       if (linkedInLink instanceof HTMLAnchorElement) {
+        window.CodeMonkeyAnalytics?.track('article_share', { share_method: 'linkedin' });
         event.preventDefault();
         const popup = window.open(
           linkedInLink.href,
@@ -326,5 +329,7 @@ const formattedUpdateDate = updatedDate
         void copyArticleUrl();
       }
     });
+
+    window.CodeMonkeyAnalytics?.trackArticleRead();
   </script>
 </BaseLayout>
